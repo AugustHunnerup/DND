@@ -5,4 +5,4 @@ Nicolaj Küster (316968) - NicolajKyster
 Omar Yassine (316969) - omar41-pro
 
 
-1.[Blog 1]("./Blog#1.md")
+1.[Blog 1](Blog#1.md)

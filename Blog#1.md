@@ -4,7 +4,11 @@ We chose to develop a booking system for traveling that can improve user experie
 
 By creating our own booking system, we hope to not only improve user experience but also innovate and incorporate modern travel trends that reflect the changing needs and expectations of today’s travelers. Our vision is to build a platform that is not only user-friendly but also forward-thinking, offering features that make travel planning more enjoyable, personalized, and environmentally responsible.
 
-User Story
+
+
+
+
+User Stories:
 As a user, I want to be able to book a hotel from the system so that I can see the best option for both price and traveling length. 
 
 As a user, I want to be able to Login to the booking system with my credentials so that I can access my saved trips, view personalized recommendations and manage my bookings. 

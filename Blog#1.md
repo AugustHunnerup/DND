@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/84c083fb-fa15-44fd-b4af-06059f241ff7)
+
+
 Reason why we chose to code a booking system for traveling
 
 We chose to develop a booking system for traveling that can improve user experience. Many of us like to travel and think that the different websites for booking a holiday can be difficult. There are many different booking systems available which makes it confusing for the user. We traveled this summer as a group and had to use four different websites in order to book everything we needed for our holiday in Croatia. For that reason, we would like to make a website where it will be easy to coordinate your end destination while also being able to do it on one website. Travel is a highly personal experience, and a good booking system should reflect that. By developing a customized system, we can introduce features like personalized recommendations based on user preferences, past trips, and budgets. We want to develop a system that not only helps users find the best deals but also suggests experiences that align with their travel goals and interests. The travel industry has evolved with trends like the rise of eco-friendly travel. 

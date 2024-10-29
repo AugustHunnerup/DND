@@ -6,3 +6,8 @@ Omar Yassine (316969) - omar41-pro
 Abdi Kafi Hassan Mohamed (316989) - GBEBABY
 
 1.[Blog 1](https://github.com/AugustHunnerup/DND/blob/main/Blog%231.md)
+2.
+3.
+4.
+5.
+6.

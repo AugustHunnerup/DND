@@ -8,8 +8,8 @@ public class HotelsController : ControllerBase
 {
 private static List<Hotel> Hotel = new List<Hotel>
 {
-    new Hotel { Name = "Hotel Copenhagen", ImageUrl = "https://via.placeholder.com/150", Description = "A modern hotel in the heart of Copenhagen.", Country = "Denmark" },
-    new Hotel { Name = "Hotel Aarhus", ImageUrl = "https://via.placeholder.com/150", Description = "A cozy hotel in Aarhus.", Country = "Denmark" },
+    new Hotel { Name = "Hotel Copenhagen", ImageUrl = "images/Copenhagen.jpg", Description = "A modern hotel in the heart of Copenhagen.", Country = "Denmark" },
+    new Hotel { Name = "Hotel Aarhus", ImageUrl = "Aarhus.jpg", Description = "A cozy hotel in Aarhus.", Country = "Denmark" },
     new Hotel { Name = "Hotel Berlin", ImageUrl = "https://via.placeholder.com/150", Description = "An upscale hotel near Brandenburg Gate.", Country = "Germany" },
     new Hotel { Name = "Hotel Munich", ImageUrl = "https://via.placeholder.com/150", Description = "A charming hotel in Munich.", Country = "Germany" },
     new Hotel { Name = "Hotel Paris", ImageUrl = "https://via.placeholder.com/150", Description = "A romantic hotel with views of the Eiffel Tower.", Country = "France" },
@@ -69,3 +69,5 @@ private static List<Hotel> Hotel = new List<Hotel>
         return Ok(hotelsInCountry);
     }
 }
+
+

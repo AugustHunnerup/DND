@@ -51,10 +51,13 @@
             <div>
                 @foreach (var hotel in selectedHotels)
                 {
-                    <div>
-                        <strong>@hotel.Name</strong><br />
-                        <em>@hotel.Description</em><br />
-                        <img src="@hotel.ImageUrl" alt="@hotel.Name" width="150" /><br /><br />
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <strong>@hotel.Name</strong><br />
+                            <em>@hotel.Description</em><br />
+                            <img src="@hotel.ImageUrl" alt="@hotel.Name" width="150" /><br /><br />
+                        </div>
+                        <button class="btn btn-primary" @onclick="() => BookHotel(hotel)">Book</button>
                     </div>
                 }
             </div>
@@ -104,7 +107,7 @@
         await LoadHotels(country);
     }
 
-    private void BookHotels()
+    private void BookHotel(Hotel hotel)
     {
         if (checkInDate == DateTime.MinValue || checkOutDate == DateTime.MinValue)
         {
@@ -112,7 +115,7 @@
         }
         else
         {
-            Console.WriteLine($"Booking confirmed for {selectedCountry} from {checkInDate:MM/dd/yyyy} to {checkOutDate:MM/dd/yyyy} for {numberOfPeople} people.");
+            Console.WriteLine($"Booking confirmed for {hotel.Name} in {selectedCountry} from {checkInDate:MM/dd/yyyy} to {checkOutDate:MM/dd/yyyy} for {numberOfPeople} people.");
         }
     }
 

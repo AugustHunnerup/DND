@@ -64,7 +64,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        allHotels = await Http.GetFromJsonAsync<List<Hotel>>("http://localhost:5031/api/hotels");
+        allHotels = await Http.GetFromJsonAsync<List<Hotel>>("http://localhost:5193/api/hotels");
     }
 
     private List<string> filteredCountries => allHotels
@@ -85,7 +85,7 @@
         isLoading = true;
 
         // Fetch hotels for the selected country from the API
-        selectedHotels = await Http.GetFromJsonAsync<List<Hotel>>($"http://localhost:5031/api/hotels/byCountry/{country}");
+        selectedHotels = await Http.GetFromJsonAsync<List<Hotel>>($"http://localhost:5193/api/hotels/byCountry/{country}");
 
         isLoading = false;
         searchQuery = string.Empty;

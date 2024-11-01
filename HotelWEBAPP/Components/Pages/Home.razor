@@ -25,6 +25,25 @@
             }
         </div>
     </section>
+
+    <!-- Types of Accommodations Section -->
+<section class="types-of-accommodations py-5">
+    <h3 class="text-center mb-4">Types of Accommodations</h3>
+    <div class="row">
+        @foreach (var accommodation in GetAccommodationTypes())
+        {
+            <div class="col-md-3 mb-4">
+                <div class="card border-0 shadow">
+                    <img src="@accommodation.ImageUrl" class="card-img-top" alt="@accommodation.Name" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@accommodation.Name</h5>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
 </div>
 
 <!-- Sample C# Methods to Provide Sample Data -->
@@ -37,5 +56,21 @@
         new Destination("London", "london.jpg")
     };
 
+    private List<Accommodation> GetAccommodationTypes() => new()
+    {
+        new Accommodation("Hotel", "HotelPicture.jpg"),
+        new Accommodation("Apartment", "ApartmentPicture.jpg"),
+        new Accommodation("Resort", "ResortPicture.jpg"),
+        new Accommodation("Villa", "VillaPicture.jpg")
+    };
+
+
     private record Destination(string Name, string ImageUrl);
+    private record Accommodation(string Name, string ImageUrl);
 }
+
+
+
+
+
+

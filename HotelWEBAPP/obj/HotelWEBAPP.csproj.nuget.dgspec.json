@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj": {}
+    "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj": {
+    "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
+        "projectUniqueName": "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
         "projectName": "HotelWEBAPP",
-        "projectPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
-        "packagesPath": "C:\\Users\\45296\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\obj\\",
+        "projectPath": "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
+        "packagesPath": "C:\\Users\\gangz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\45296\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\gangz\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

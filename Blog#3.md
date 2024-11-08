@@ -14,4 +14,7 @@ Login Page: Allows users to log into the system. We have recently started implem
 
 3)
 
-Noter: Vi har idag 9/11 været på skolen til at få hjælp med at loade vores billeder. Vi fik lavet en @configuration med WEBAPIADRESS da vores billeder fra events og hotel i vores program ikke blev vist da de blev kaldt på den forkerte host. Vi kiggede i developer tool på browseren under network og fandt frem til hvad vores fejl var. Vi fik sat billeder af vores hoteller og seværdigheder ind, og kan nu starte med at sætte login systemet ind i Blazor.
+Notes from Today: 8/11-24
+Today, we were at school to get assistance with loading images correctly in our web application. We identified that the images were not displaying because they were being called from an incorrect host. By using the Developer Tools in the browser, we found the error and were able to correct the WEBAPIADDRESS in our configuration. This allowed us to display images of both hotels and attractions, significantly improving the user experience.
+
+The next step will be to implement the login system in Blazor, so users can log in and access protected areas of the application. This will add an additional level of functionality and security to the application.

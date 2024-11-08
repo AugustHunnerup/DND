@@ -2,6 +2,7 @@
 
 1)To meet the key requirements of our web application, loading images and displaying data from our backend service. One of the primary requirements was to ensure that images from events and hotels were correctly loaded and displayed on the frontend. To address this issue, we implemented a @configuration variable that contains the WEBAPIADDRESS – a setting that makes images fetched from the correct server address.
 We had a couple key requirments. We wanted the user to be able to book a hotel for there stay. Therefore we created a HotelBooking.razor 
+
  ![image](https://github.com/user-attachments/assets/8c888747-d737-4b96-a7e9-10cfec8aeb07)
 
     Here you can see we added a check in, check out date and number of people staying.

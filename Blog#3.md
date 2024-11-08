@@ -1,7 +1,7 @@
 ![image](https://github.com/user-attachments/assets/bdf2c7dd-1936-480f-a06b-acb3ad158937)
 
 1)To meet the key requirements of our web application, loading images and displaying data from our backend service. One of the primary requirements was to ensure that images from events and hotels were correctly loaded and displayed on the frontend. To address this issue, we implemented a @configuration variable that contains the WEBAPIADDRESS – a setting that makes images fetched from the correct server address.
-We had a couple key requirments. We wanted the user to be able to book a hotel for there stay. Therefore we created a HotelBooking.razor: 
+We had a couple key requirments. We wanted the user to be able to book a hotel for there stay. Therefore we created a HotelBooking.razor 
  <div class="row justify-content-center mt-4">
         <div class="col-md-4">
             <label for="checkInDate">Check-in Date:</label>

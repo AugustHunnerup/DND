@@ -1,6 +1,7 @@
 @page "/activities"
 @rendermode InteractiveServer
 @inject HttpClient Http
+@inject IConfiguration Configuration
 
 <h3 class="text-center my-4">Activities</h3>
 <p>Welcome to the activities page!</p>
@@ -41,7 +42,7 @@
                     <div>
                         <strong>@eventItem.Name</strong><br />
                         <em>@eventItem.Description</em><br />
-                        <img src="@eventItem.ImageUrl" alt="@eventItem.Name" width="150" /><br /><br />
+                        <img src="@(@Configuration["WebAPIBaseAddress"] + @eventItem.ImageUrl)" alt="@eventItem.Name" width="150" /><br /><br />
                     </div>
                 </div>
             }
@@ -59,7 +60,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        allEvents = await Http.GetFromJsonAsync<List<Event>>("http://localhost:5193/api/Activities");
+        allEvents = await Http.GetFromJsonAsync<List<Event>>("/api/Activities");
     }
 
     private List<string> filteredCountries => allEvents

@@ -1,6 +1,7 @@
 @page "/HotelBooking"
 @rendermode InteractiveServer
 @inject HttpClient Http
+@inject IConfiguration Configuration
 
 <h3 class="text-center my-4">Explore Hotels by Country</h3>
 
@@ -55,7 +56,7 @@
                         <div>
                             <strong>@hotel.Name</strong><br />
                             <em>@hotel.Description</em><br />
-                            <img src="@hotel.ImageUrl" alt="@hotel.Name" width="150" /><br /><br />
+                            <img src="@(@Configuration["WebAPIBaseAddress"] + @hotel.ImageUrl)" alt="@hotel.Name" width="150" /><br /><br />
                         </div>
                         <button class="btn btn-primary" @onclick="() => BookHotel(hotel)">Book</button>
                     </div>
@@ -78,7 +79,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        allHotels = await Http.GetFromJsonAsync<List<Hotel>>("http://localhost:5193/api/hotels");
+        allHotels = await Http.GetFromJsonAsync<List<Hotel>>("/api/hotels");
     }
 
     private List<string> filteredCountries => allHotels

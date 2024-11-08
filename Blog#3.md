@@ -2,7 +2,7 @@
 
 1)To meet the key requirements of our web application, loading images and displaying data from our backend service. One of the primary requirements was to ensure that images from events and hotels were correctly loaded and displayed on the frontend. To address this issue, we implemented a @configuration variable that contains the WEBAPIADDRESS – a setting that makes images fetched from the correct server address.
 We had a couple key requirments. We wanted the user to be able to book a hotel for there stay. Therefore we created a HotelBooking.razor 
- //<div class="row justify-content-center mt-4">
+ <div class="row justify-content-center mt-4">
         <div class="col-md-4">
             <label for="checkInDate">Check-in Date:</label>
             <input type="date" id="checkInDate" @bind="checkInDate" min="@todayString" class="form-control" />
@@ -15,7 +15,7 @@ We had a couple key requirments. We wanted the user to be able to book a hotel f
             <label for="numberOfPeople">Number of People:</label>
             <input type="number" id="numberOfPeople" @bind="numberOfPeople" min="1" class="form-control" placeholder="Number of people" />
         </div>
-    </div>//
+    </div>
     Here you can see we added a check in, check out date and number of people staying.
     
     We also wanted to add a login for the user:  

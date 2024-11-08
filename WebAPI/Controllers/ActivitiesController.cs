@@ -10,7 +10,7 @@ public class ActivitiesController : ControllerBase
     {
         new Event { Name = "Legoland", ImageUrl = "/images/Copenhagen.jpg", Description = "Experience Legoland in Billund", Country = "Denmark" },
         new Event { Name = "Tivoli", ImageUrl = "/images/Copenhagen.jpg", Description = "Experience Tivoli in Copenhagen", Country = "Denmark" },
-        new Event { Name = "Kongelige teater", ImageUrl = "/images/Copenhagen.jpg", Description = "Experience Kongelig theater in Copenhagen", Country = "Denmark" },
+        new Event { Name = "Kongelige teater", ImageUrl = "/images/Copenhagen.jpg", Description = "Experience Kongelig teater in Copenhagen", Country = "Denmark" },
         new Event { Name = "Jellingestenen", ImageUrl = "Aarhus.jpg", Description = "Experience Jellingestenen in Sydjylland", Country = "Denmark" },
         new Event { Name = "Europa-Park", ImageUrl = "/images/Rust1.jpg", Description = "Experience Europa-Park and its exciting roller coasters", Country = "Germany" },
         new Event { Name = "Nationalpark Harz", ImageUrl = "/images/Goslar.jpg", Description = "Experience a beautiful and peaceful park in North Germany", Country = "Germany" },

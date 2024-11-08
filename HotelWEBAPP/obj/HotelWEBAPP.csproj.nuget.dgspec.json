@@ -4,14 +4,14 @@
     "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj": {
+    "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
-        "projectName": "HotelWEBAPP",
-        "projectPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
+        "projectUniqueName": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj",
+        "projectName": "DNDProject.Domain",
+        "projectPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj",
         "packagesPath": "C:\\Users\\45296\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\obj\\",
+        "outputPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\45296\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -42,6 +42,80 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
+        "projectName": "HotelWEBAPP",
+        "projectPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
+        "packagesPath": "C:\\Users\\45296\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\45296\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj": {
+                "projectPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

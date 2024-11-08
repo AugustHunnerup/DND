@@ -1,53 +1,49 @@
+using System.Net;
+using DNDProject.Domain.Auth;
+using DNDProject.WebApp.Auth;
 using HotelWEBAPP.Components;
-using System.Text;
-using System.Net.Http;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
-
-var handler = new HttpClientHandler
-{
-    ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
-};
-
+using DNDProject.WebApp.Services.Http;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Components.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents()
-    .Services.AddHttpClient();
+    .AddInteractiveServerComponents();
 
-builder.Services.AddHttpClient("NoSSL").ConfigurePrimaryHttpMessageHandler(() => handler);
+builder.Services.AddScoped(sp => new HttpClient() { BaseAddress = new Uri(builder.Configuration["WebAPIBaseAddress"] ?? "") });
 
-// Register Blazored.LocalStorage
+builder.Services.AddAuthentication().AddCookie(options =>
+{
+    options.LoginPath = "/login";
+});
 
+builder.Services.AddScoped<IAuthService, JwtAuthService>();
 
-// Register the custom AuthenticationStateProvider
+builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
 
+AuthorizationPolicies.AddPolicies(builder.Services);
 
-// Add authentication services
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
 
 app.UseStaticFiles();
-
-app.UseRouting();
-
-
-
-// Add anti-forgery middleware
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
 app.Run();
-

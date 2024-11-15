@@ -2,6 +2,7 @@
 @rendermode InteractiveServer
 @inject HttpClient Http
 @inject IConfiguration Configuration
+@using System.Security.Claims
 
 <h3 class="text-center my-4">Explore Hotels by Country</h3>
 
@@ -58,7 +59,14 @@
                             <em>@hotel.Description</em><br />
                             <img src="@(@Configuration["WebAPIBaseAddress"] + @hotel.ImageUrl)" alt="@hotel.Name" width="150" /><br /><br />
                         </div>
-                        <button class="btn btn-primary" @onclick="() => BookHotel(hotel)">Book</button>
+                        <AuthorizeView>
+                            <Authorized>
+                                <button class="btn btn-primary" @onclick="() => BookHotel(hotel)">Book</button>
+                            </Authorized>
+                            <NotAuthorized>
+                                <p>You are not logged in!</p>
+                            </NotAuthorized>
+                        </AuthorizeView>
                     </div>
                 }
             </div>

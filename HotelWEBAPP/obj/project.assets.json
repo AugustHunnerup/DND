@@ -39,6 +39,46 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Components/8.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "8.0.10",
+          "Microsoft.AspNetCore.Components.Analyzers": "8.0.10"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.Components.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Components.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components.Analyzers/8.0.10": {
+        "type": "package",
+        "build": {
+          "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.Authorization/8.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "8.0.10",
+          "Microsoft.AspNetCore.Components": "8.0.10"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.Components.Authorization.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Components.Authorization.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Metadata/8.0.10": {
         "type": "package",
         "compile": {
@@ -283,6 +323,52 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
         "microsoft.aspnetcore.authorization.8.0.10.nupkg.sha512",
         "microsoft.aspnetcore.authorization.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components/8.0.10": {
+      "sha512": "qTsPBcK6Z2Yyt+A5GPub9CiUxfmSIrNQ22BT8efzXiz50Vx0KKTsE82pxbipgGU9XNXZhEtYSNTqQFuWyRlIRw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components/8.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "lib/net8.0/Microsoft.AspNetCore.Components.dll",
+        "lib/net8.0/Microsoft.AspNetCore.Components.xml",
+        "microsoft.aspnetcore.components.8.0.10.nupkg.sha512",
+        "microsoft.aspnetcore.components.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.Analyzers/8.0.10": {
+      "sha512": "czb81hXe2a+w1py/U2MrO3aSb0Ht0r1/I+4vJucjTZwbhHtGubneifS3h05DB6CakT8dgKyS0eypQaLuDKkWtQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.analyzers/8.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "analyzers/dotnet/cs/Microsoft.AspNetCore.Components.Analyzers.dll",
+        "build/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
+        "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
+        "microsoft.aspnetcore.components.analyzers.8.0.10.nupkg.sha512",
+        "microsoft.aspnetcore.components.analyzers.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.Authorization/8.0.10": {
+      "sha512": "z9WZ2sbkKKChx8b75X+1kRpbUdYOqn7sanbNCGavwmgyVUj30F5se2BTXENCOyi1Ve7Hgi4VapH4k1zwO5YN8A==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.authorization/8.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "lib/net8.0/Microsoft.AspNetCore.Components.Authorization.dll",
+        "lib/net8.0/Microsoft.AspNetCore.Components.Authorization.xml",
+        "microsoft.aspnetcore.components.authorization.8.0.10.nupkg.sha512",
+        "microsoft.aspnetcore.components.authorization.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Metadata/8.0.10": {
@@ -656,23 +742,24 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "DNDProject.Domain >= 1.0.0",
-      "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.10"
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.10",
+      "Microsoft.AspNetCore.Components.Authorization >= 8.0.10"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\45296\\.nuget\\packages\\": {}
+    "C:\\Users\\gangz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
+      "projectUniqueName": "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
       "projectName": "HotelWEBAPP",
-      "projectPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
-      "packagesPath": "C:\\Users\\45296\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\obj\\",
+      "projectPath": "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
+      "packagesPath": "C:\\Users\\gangz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\45296\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\gangz\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -684,8 +771,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj": {
-              "projectPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj"
+            "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj": {
+              "projectPath": "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj"
             }
           }
         }
@@ -706,6 +793,10 @@
         "targetAlias": "net8.0",
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[8.0.10, )"
+          },
+          "Microsoft.AspNetCore.Components.Authorization": {
             "target": "Package",
             "version": "[8.0.10, )"
           }

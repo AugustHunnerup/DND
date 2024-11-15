@@ -12,7 +12,7 @@ public class AuthService : IAuthService
             Email = "jknr@via.dk",
             FullName = "Jakob Trigger Knop",
             Domain = "admin.com",
-            Password = "onetwo3FOUR",
+            Password = "1234",
             Role = "Teacher",
             SecurityLevel = 4,
             Birthday = new DateTime(1988, 3, 14)
@@ -23,7 +23,7 @@ public class AuthService : IAuthService
             Email = "kasper@gmail.com",
             FullName = "Kasper Knop",
             Domain = "via.dk",
-            Password = "password",
+            Password = "1234",
             Role = "Student",
             SecurityLevel = 2,
             Birthday = new DateTime(1988, 3, 14)

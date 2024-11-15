@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj": {}
+    "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj": {
+    "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj",
         "projectName": "DNDProject.Domain",
-        "projectPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj",
-        "packagesPath": "C:\\Users\\45296\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\obj\\",
+        "projectPath": "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj",
+        "packagesPath": "C:\\Users\\gangz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\45296\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\gangz\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -68,17 +68,17 @@
         }
       }
     },
-    "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj": {
+    "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
+        "projectUniqueName": "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
         "projectName": "HotelWEBAPP",
-        "projectPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
-        "packagesPath": "C:\\Users\\45296\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\obj\\",
+        "projectPath": "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\HotelWEBAPP.csproj",
+        "packagesPath": "C:\\Users\\gangz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\HotelWEBAPP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\45296\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\gangz\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -90,8 +90,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj": {
-                "projectPath": "C:\\Users\\45296\\OneDrive - ViaUC\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj"
+              "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj": {
+                "projectPath": "C:\\Users\\gangz\\OneDrive\\Dokumenter\\GitHub\\DND\\DNDProject.Domain\\DNDProject.Domain.csproj"
               }
             }
           }
@@ -112,6 +112,10 @@
           "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.AspNetCore.Components.Authorization": {
               "target": "Package",
               "version": "[8.0.10, )"
             }

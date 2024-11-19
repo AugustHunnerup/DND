@@ -79,7 +79,7 @@
     private List<Hotel> selectedHotels;
     private bool isLoading = false;
     private string searchQuery = string.Empty;
-    private List<Hotel> allHotels;
+    private List<Hotel> allHotels = new List<Hotel>();
     private DateTime checkInDate;
     private DateTime checkOutDate;
     private int numberOfPeople = 1; // Default to 1 person
@@ -87,14 +87,21 @@
 
     protected override async Task OnInitializedAsync()
     {
-        allHotels = await Http.GetFromJsonAsync<List<Hotel>>("/api/hotels");
+        try
+        {
+            allHotels = await Http.GetFromJsonAsync<List<Hotel>>("/api/hotels");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching hotels: {ex.Message}");
+        }
     }
 
-    private List<string> filteredCountries => allHotels
+    private List<string> filteredCountries => allHotels?
         .Select(h => h.Country)
         .Distinct()
         .Where(c => c.StartsWith(searchQuery, StringComparison.OrdinalIgnoreCase))
-        .ToList();
+        .ToList() ?? new List<string>();
 
     private void OnSearchInput(ChangeEventArgs e)
     {

@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DNDProject.Domain\DNDProject.Domain.csproj" />
+    <ProjectReference Include="..\WebAPI\WebAPI.csproj" />
   </ItemGroup>
 
   <ItemGroup>

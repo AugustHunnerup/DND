@@ -1,6 +1,5 @@
-namespace DNDProject.Domain.Models;
+public class User
 
-public record User
 {
     public int Id { get; set; }
     public string Username { get; set; } = "";
@@ -11,4 +10,8 @@ public record User
     public string Domain { get; set; } = "";
     public string Role { get; set; } = "";
     public int SecurityLevel { get; set; }
+
+
+
+    public ICollection<Booking> bookings { get; set; }
 }

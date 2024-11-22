@@ -1,34 +1,14 @@
 using System.ComponentModel.DataAnnotations;
-using DNDProject.Domain.Models;
+
 
 namespace DNDProject.WebAPI.Services;
 public class AuthService : IAuthService
 {
-    private readonly IList<User> users =
-    [
-        new()
-        {
-            Username = "Admin",
-            Email = "jknr@via.dk",
-            FullName = "Jakob Trigger Knop",
-            Domain = "admin.com",
-            Password = "1234",
-            Role = "Teacher",
-            SecurityLevel = 4,
-            Birthday = new DateTime(1988, 3, 14)
-        },
-        new()
-        {
-            Username = "9n10n2Guy",
-            Email = "kasper@gmail.com",
-            FullName = "Kasper Knop",
-            Domain = "via.dk",
-            Password = "1234",
-            Role = "Student",
-            SecurityLevel = 2,
-            Birthday = new DateTime(1988, 3, 14)
-        }
-    ];
+    public AuthService(HotelContext context)
+    {
+        users = context.Users.ToList();
+    }
+    private readonly IList<User> users;
 
     public Task<User> ValidateUser(string username, string password)
     {

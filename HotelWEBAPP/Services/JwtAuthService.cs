@@ -3,7 +3,6 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
 using DNDProject.Domain.DTOs;
-using DNDProject.Domain.Models;
 using Microsoft.JSInterop;
 
 namespace DNDProject.WebApp.Services.Http;

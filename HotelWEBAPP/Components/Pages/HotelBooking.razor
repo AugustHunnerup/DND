@@ -2,13 +2,16 @@
 @rendermode InteractiveServer
 @inject HttpClient Http
 @inject IConfiguration Configuration
+@inject NavigationManager Navigation
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Components.Authorization
 
 <h3 class="text-center my-4">Explore Hotels by Country</h3>
 
 <div class="container">
-    <!-- Search and Filter Section -->
     <div class="row justify-content-center">
         <input type="text" class="form-control w-50" @oninput="OnSearchInput" placeholder="Search countries..." />
+
         @if (!string.IsNullOrEmpty(searchQuery) && filteredCountries.Any())
         {
             <ul class="list-group position-absolute w-50" style="max-height: 200px; overflow-y: auto; z-index: 1000;">
@@ -18,9 +21,14 @@
                 }
             </ul>
         }
+        else if (!string.IsNullOrEmpty(searchQuery))
+        {
+            <ul class="list-group position-absolute w-50" style="max-height: 200px; overflow-y: auto; z-index: 1000;">
+                <li class="list-group-item">No countries found.</li>
+            </ul>
+        }
     </div>
 
-    <!-- Date and People Inputs -->
     <div class="row justify-content-center mt-4">
         <div class="col-md-4">
             <label for="checkInDate">Check-in Date:</label>
@@ -36,7 +44,6 @@
         </div>
     </div>
 
-    <!-- Hotel Display Section -->
     <div class="row justify-content-center mt-4">
         @if (isLoading)
         {
@@ -79,8 +86,9 @@
     private DateTime checkOutDate;
     private int numberOfPeople = 1; // Default to 1 person
     private string todayString = DateTime.Now.ToString("yyyy-MM-dd");
-    private string successMessage;
-    private string errorMessage;
+
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -121,42 +129,65 @@
     }
 
     private async Task BookHotel(Hotel hotel)
-{
-    if (checkInDate == DateTime.MinValue || checkOutDate == DateTime.MinValue || checkInDate >= checkOutDate)
     {
-        Console.WriteLine("Validation failed: Invalid dates.");
-        return;
-    }
-
-    var booking = new Booking
-    {
-        Hotel = hotel.Name,
-        CheckIn = checkInDate,
-        CheckOut = checkOutDate,
-    };
-
-    try
-    {
-        Console.WriteLine($"Attempting to book: Hotel = {booking.Hotel}, CheckIn = {booking.CheckIn}, CheckOut = {booking.CheckOut}");
-        var response = await Http.PostAsJsonAsync("api/hotels/add-booking", booking);
-
-        if (response.IsSuccessStatusCode)
+        if (checkInDate == DateTime.MinValue || checkOutDate == DateTime.MinValue)
         {
-            Console.WriteLine("Booking successful.");
+            Console.WriteLine("Please select both check-in and check-out dates.");
         }
         else
         {
-            Console.WriteLine($"Booking failed. Response: {response.StatusCode} {response.ReasonPhrase}");
+            var authState = await authenticationStateTask;
+            var user = authState.User;
+
+            if (user.Identity.IsAuthenticated)
+            {
+                var userIdClaim = user.FindFirst(ClaimTypes.NameIdentifier);
+                if (userIdClaim == null)
+                {
+                    Console.WriteLine("User ID claim is missing.");
+                    return;
+                }
+
+                var userId = userIdClaim.Value;
+                if (string.IsNullOrEmpty(userId))
+                {
+                    Console.WriteLine("User ID is null or empty.");
+                    return;
+                }
+
+                var booking = new Booking
+                {
+                    HotelName = hotel.Name,
+                    CheckIn = checkInDate,
+                    CheckOut = checkOutDate,
+                    User = new User { Id = int.Parse(userId) }, // Assuming the user ID is an integer
+                    HotelDetails = hotel // Updated to match the Booking class
+                };
+
+                // Save booking data to the database
+                var response = await Http.PostAsJsonAsync("/api/hotels/add-booking", booking);
+                if (response.IsSuccessStatusCode)
+                {
+                    // Navigate to the booking confirmation page
+                    //Navigation.NavigateTo("/booking");
+                    Console.WriteLine("Saved booking.");
+                }
+                else
+                {
+                    var errorMessage = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Error saving booking: {errorMessage}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("User is not authenticated.");
+            }
         }
     }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error occurred: {ex.Message}");
-    }
-}
 
     public class Hotel
     {
+        public int HotelId { get; set; }
         public string Name { get; set; }
         public string ImageUrl { get; set; }
         public string Description { get; set; }
@@ -165,8 +196,11 @@
 
     public class Booking
     {
-        public string Hotel { get; set; }
+        public int Id { get; set; }
+        public string HotelName { get; set; }
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }
+        public User User { get; set; }
+        public Hotel HotelDetails { get; set; } // Updated to match the Booking class
     }
 }

@@ -35,21 +35,21 @@ public class HotelsController : ControllerBase
 
         return hotelsInCountry;
     }
+
     [HttpPost("add-booking")]
-public async Task<IActionResult> AddBooking([FromBody] Booking booking)
-{
-    if (booking == null) return BadRequest("Booking details are required.");
-
-    try
+    public async Task<IActionResult> AddBooking([FromBody] Booking booking)
     {
-        _context.Bookings.Add(booking); // Assumes Bookings is already part of your DbContext
-        await _context.SaveChangesAsync();
-        return Ok("Booking successfully saved.");
-    }
-    catch (Exception ex)
-    {
-        return StatusCode(500, $"Error saving booking: {ex.Message}");
-    }
-}
+        if (booking == null) return BadRequest("Booking details are required.");
 
+        try
+        {
+            _context.Bookings.Add(booking); // Assumes Bookings is already part of your DbContext
+            await _context.SaveChangesAsync();
+            return Ok("Booking successfully saved.");
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Error saving booking: {ex.Message}");
+        }
+    }
 }

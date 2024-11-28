@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace WebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialLoad2 : Migration
+    public partial class RenameHotelColumn : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -71,18 +71,18 @@ namespace WebAPI.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Hotel = table.Column<string>(type: "TEXT", nullable: false),
+                    HotelName = table.Column<string>(type: "TEXT", nullable: false),
                     CheckIn = table.Column<DateTime>(type: "TEXT", nullable: false),
                     CheckOut = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UserId = table.Column<int>(type: "INTEGER", nullable: false),
-                    hotelId = table.Column<int>(type: "INTEGER", nullable: false)
+                    hotelDetailsId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bookings", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Bookings_Hotels_hotelId",
-                        column: x => x.hotelId,
+                        name: "FK_Bookings_Hotels_hotelDetailsId",
+                        column: x => x.hotelDetailsId,
                         principalTable: "Hotels",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -120,9 +120,9 @@ namespace WebAPI.Migrations
                 values: new object[] { 1, new DateTime(1988, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin.com", "jknr@via.dk", "Jakob Trigger Knop", "1234", "Teacher", 4, "Admin" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Bookings_hotelId",
+                name: "IX_Bookings_hotelDetailsId",
                 table: "Bookings",
-                column: "hotelId");
+                column: "hotelDetailsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bookings_UserId",

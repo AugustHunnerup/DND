@@ -28,21 +28,21 @@ namespace WebAPI.Migrations
                     b.Property<DateTime>("CheckOut")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Hotel")
+                    b.Property<string>("HotelName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("hotelId")
+                    b.Property<int>("hotelDetailsId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("hotelId");
+                    b.HasIndex("hotelDetailsId");
 
                     b.ToTable("Bookings");
                 });
@@ -216,15 +216,15 @@ namespace WebAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Hotel", "hotel")
+                    b.HasOne("Hotel", "hotelDetails")
                         .WithMany()
-                        .HasForeignKey("hotelId")
+                        .HasForeignKey("hotelDetailsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
 
-                    b.Navigation("hotel");
+                    b.Navigation("hotelDetails");
                 });
 
             modelBuilder.Entity("User", b =>

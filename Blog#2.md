@@ -1,47 +1,43 @@
 ![image](https://github.com/user-attachments/assets/97e97808-b787-4722-8062-27c1e3dcd1e2) 
 
 1)
-        // POST: api/HotelControllers
-        [HttpPost]
-        public ActionResult<Hotel> CreateHotel(Hotel hotel)
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Hotel>>> Get()
+    {
+        return await _context.Hotels.ToListAsync();
+    }
+
+    [HttpGet("byCountry/{country}")]
+    public async Task<ActionResult<IEnumerable<Hotel>>> GetByCountry(string country)
+    {
+        var hotelsInCountry = await _context.Hotels
+            .Where(h => h.Country.Equals(country, System.StringComparison.OrdinalIgnoreCase))
+            .ToListAsync();
+
+        if (!hotelsInCountry.Any())
         {
-            _context.Hotels.Add(hotel);
-            _context.SaveChanges();
-            return CreatedAtAction(nameof(GetHotel), new { id = hotel.Id }, hotel);
+            return NotFound();
         }
 
-        // PUT: api/HotelControllers/{id}
-        [HttpPut("{id}")]
-        public IActionResult UpdateHotel(int id, Hotel hotel)
+        return hotelsInCountry;
+    }
+
+    [HttpPost("add-booking")]
+    public async Task<IActionResult> AddBooking([FromBody] Booking booking)
+    {
+        if (booking == null) return BadRequest("Booking details are required.");
+
+        try
         {
-            if (id != hotel.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(hotel).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            _context.SaveChanges();
-
-            return NoContent();
+            _context.Bookings.Add(booking); // Assumes Bookings is already part of your DbContext
+            await _context.SaveChangesAsync();
+            return Ok("Booking successfully saved.");
         }
-
-        // DELETE: api/HotelControllers/{id}
-        [HttpDelete("{id}")]
-        public IActionResult DeleteHotel(int id)
+        catch (Exception ex)
         {
-            var hotel = _context.Hotels.Find(id);
-            if (hotel == null)
-            {
-                return NotFound();
-            }
-
-            _context.Hotels.Remove(hotel);
-            _context.SaveChanges();
-
-            return NoContent();
+            return StatusCode(500, $"Error saving booking: {ex.Message}");
         }
     }
-}
 
 HTTP Verbs:
 GET: Retrieves resources.
@@ -50,7 +46,7 @@ PUT: Updates existing resources.
 DELETE: Removes resources.
 
 2)
-![image](https://github.com/user-attachments/assets/73ecc576-8c1b-4949-aa5d-8cce31cdc716)
+
 
 
 

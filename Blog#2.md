@@ -51,6 +51,7 @@ public async Task<ActionResult<IEnumerable<Hotel>>> Get()
 {
     return await _context.Hotels.ToListAsync();
 }
+
 HTTP Method: GET
 Route: /api/[controller]
 

@@ -48,7 +48,11 @@ POST: Creates new resources.
 PUT: Updates existing resources.
 DELETE: Removes resources.
 
+
 2)
+
+Here is another example:
+
 [HttpGet]
 public async Task<ActionResult<IEnumerable<Hotel>>> Get()
 {

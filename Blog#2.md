@@ -76,7 +76,22 @@ Route: /api/[controller]
 HTTP Method: POST
 Route: /api/[controller]/login
 
+3)
 
+The HotelContext.cs defines how the application interacts with SQLite database. The Hotel.db stores the data.
+Here is an example:
+public class HotelContext : DbContext
+{
+    public HotelContext(DbContextOptions<HotelContext> options) : base(options) { }
+
+    public DbSet<Hotel> Hotels { get; set; }
+    public DbSet<Event> Events { get; set; }
+    public DbSet<Booking> Bookings { get; set; }
+    public DbSet<User> Users { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+
+  This class defines the database schema by mapping the entities; Hotels, Events, Bookings, Users to tables.
 
 
 We learned to make getignore and to connect our servers together by livesharing, restoring and could work on the same project. 

@@ -56,6 +56,10 @@ HTTP Method: GET
 Route: /api/[controller]
 
 
+
+
+
+
 We learned to make getignore and to connect our servers together by livesharing, restoring and could work on the same project. 
 
 We took notes on authentacation, and how that worked.

@@ -195,13 +195,13 @@ namespace WebAPI.Migrations
                         new
                         {
                             Id = 1,
-                            Birthday = new DateTime(1988, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Domain = "admin.com",
-                            Email = "jknr@via.dk",
-                            FullName = "Jakob Trigger Knop",
+                            Birthday = new DateTime(2000, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Domain = "Hotelbooking.com",
+                            Email = "Enesyil38@hotmail.com",
+                            FullName = "Enes Yildiz",
                             Password = "1234",
-                            Role = "Teacher",
-                            SecurityLevel = 4,
+                            Role = "Admin",
+                            SecurityLevel = 2,
                             Username = "Admin"
                         });
                 });

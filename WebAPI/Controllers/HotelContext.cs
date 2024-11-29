@@ -64,13 +64,13 @@ public class HotelContext : DbContext
         modelBuilder.Entity<User>().HasData(new{
             Id = 1,
             Username = "Admin",
-            Email = "jknr@via.dk",
-            FullName = "Jakob Trigger Knop",
-            Domain = "admin.com",
+            Email = "Enesyil38@hotmail.com",
+            FullName = "Enes Yildiz",
+            Domain = "Hotelbooking.com",
             Password = "1234",
-            Role = "Teacher",
-            SecurityLevel = 4,
-            Birthday = new DateTime(1988, 3, 14)
+            Role = "Admin",
+            SecurityLevel = 2,
+            Birthday = new DateTime(2000, 06, 23)
         });
            
     }

@@ -67,4 +67,18 @@ public class HotelsController : ControllerBase
 
         return Ok(userBookings);
     }
+
+    [HttpGet("all-bookings")]
+    public async Task<ActionResult<IEnumerable<Booking>>> GetAllBookings()
+    {
+        var allBookings = await _context.Bookings
+            .ToListAsync();
+
+        if (allBookings == null || !allBookings.Any())
+        {
+            return NotFound("No bookings found.");
+        }
+
+        return Ok(allBookings);
+    }
 }

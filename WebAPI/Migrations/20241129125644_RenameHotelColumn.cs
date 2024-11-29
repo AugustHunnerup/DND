@@ -111,7 +111,7 @@ namespace WebAPI.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Birthday", "Domain", "Email", "FullName", "Password", "Role", "SecurityLevel", "Username" },
-                values: new object[] { 1, new DateTime(1988, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin.com", "jknr@via.dk", "Jakob Trigger Knop", "1234", "Teacher", 4, "Admin" });
+                values: new object[] { 1, new DateTime(2000, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hotelbooking.com", "Enesyil38@hotmail.com", "Enes Yildiz", "1234", "Admin", 2, "Admin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bookings_UserId",

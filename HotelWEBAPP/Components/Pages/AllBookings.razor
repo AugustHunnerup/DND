@@ -1,0 +1,82 @@
+@page "/AllBookings"
+@inject HttpClient Http
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<!-- Main Layout -->
+<div class="container-fluid">
+    <!-- Header -->
+    <header class="text-center py-4">
+        <h1>All Bookings</h1>
+        <p class="lead">Discover Top Destinations for Your Next Stay</p>
+    </header>
+
+    <!-- Booking List Section -->
+    <section class="booking-list py-5">
+        <h3 class="text-center mb-4">Your Reservations</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Hotel Name</th>
+                    <th>Check-In Date</th>
+                    <th>Check-Out Date</th>
+                    <th>Number of People</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (bookings == null)
+                {
+                    <tr>
+                        <td colspan="5" class="text-center">Loading...</td>
+                    </tr>
+                }
+                else
+                {
+                    @foreach (var booking in bookings)
+                    {
+                        <tr>
+                            <td>@booking.Id</td>
+                            <td>@booking.HotelName</td>
+                            <td>@booking.CheckIn.ToShortDateString()</td>
+                            <td>@booking.CheckOut.ToShortDateString()</td>
+                            <td>@booking.NumberOfPeople</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </section>
+</div>
+
+@code {
+    private List<Booking> bookings;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadBookingsAsync();
+    }
+
+    private async Task LoadBookingsAsync()
+    {
+        
+                var response = await Http.GetAsync($"/api/Hotels/all-bookings");
+                if (response.IsSuccessStatusCode)
+                {
+                    bookings = await response.Content.ReadFromJsonAsync<List<Booking>>();
+                }
+                else
+                {
+                    Console.WriteLine($"Error fetching bookings: {response.ReasonPhrase}");
+                }
+            
+    }
+
+    public class Booking
+    {
+        public int Id { get; set; }
+        public string HotelName { get; set; }
+        public DateTime CheckIn { get; set; }
+        public DateTime CheckOut { get; set; }
+        public int NumberOfPeople { get; set; }
+    }
+}

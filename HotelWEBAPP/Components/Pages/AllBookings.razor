@@ -7,16 +7,16 @@
     <!-- Header -->
     <header class="text-center py-4">
         <h1>All Bookings</h1>
-        <p class="lead">Discover Top Destinations for Your Next Stay</p>
     </header>
 
     <!-- Booking List Section -->
     <section class="booking-list py-5">
-        <h3 class="text-center mb-4">Your Reservations</h3>
+        <h3 class="text-center mb-4">All Reservations</h3>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Booking ID</th>
+                    <th>User ID</th>
                     <th>Hotel Name</th>
                     <th>Check-In Date</th>
                     <th>Check-Out Date</th>
@@ -36,6 +36,7 @@
                     {
                         <tr>
                             <td>@booking.Id</td>
+                            <td>@booking.UserId</td>
                             <td>@booking.HotelName</td>
                             <td>@booking.CheckIn.ToShortDateString()</td>
                             <td>@booking.CheckOut.ToShortDateString()</td>
@@ -74,6 +75,7 @@
     public class Booking
     {
         public int Id { get; set; }
+        public int UserId { get; set; }
         public string HotelName { get; set; }
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }

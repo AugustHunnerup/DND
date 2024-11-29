@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(HotelContext))]
-    [Migration("20241128133111_RenameHotelColumn")]
+    [Migration("20241129092316_RenameHotelColumn")]
     partial class RenameHotelColumn
     {
         /// <inheritdoc />
@@ -35,17 +35,15 @@ namespace WebAPI.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("NumberOfPeople")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("hotelDetailsId")
+                    b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
-
-                    b.HasIndex("hotelDetailsId");
 
                     b.ToTable("Bookings");
                 });
@@ -214,25 +212,17 @@ namespace WebAPI.Migrations
             modelBuilder.Entity("Booking", b =>
                 {
                     b.HasOne("User", "User")
-                        .WithMany("bookings")
+                        .WithMany("Bookings")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Hotel", "hotelDetails")
-                        .WithMany()
-                        .HasForeignKey("hotelDetailsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("User");
-
-                    b.Navigation("hotelDetails");
                 });
 
             modelBuilder.Entity("User", b =>
                 {
-                    b.Navigation("bookings");
+                    b.Navigation("Bookings");
                 });
 #pragma warning restore 612, 618
         }

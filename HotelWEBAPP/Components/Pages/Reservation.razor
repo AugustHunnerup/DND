@@ -1,0 +1,119 @@
+@page "/Reservation"
+@inject HttpClient Http
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<!-- Main Layout -->
+<div class="container-fluid">
+    <!-- Header -->
+    <header class="text-center py-4">
+        <h1>BookMyStay</h1>
+        <p class="lead">Discover Top Destinations for Your Next Stay</p>
+    </header>
+
+    <!-- Popular Destinations Section -->
+    <section class="popular-destinations py-5">
+        <h3 class="text-center mb-4">Popular Destinations</h3>
+        <div class="row">
+            @foreach (var destination in GetPopularDestinations())
+            {
+                <div class="col-md-3 mb-4">
+                    <div class="card border-0 shadow">
+                        <img src="@destination.ImageUrl" class="card-img-top" alt="@destination.Name" style="height: 200px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">@destination.Name</h5>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    <!-- User Bookings Section -->
+    <section class="user-bookings py-5">
+        <h3 class="text-center mb-4">Your Bookings</h3>
+        <div class="row">
+            @if (userBookings.Any())
+            {
+                @foreach (var booking in userBookings)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card border-0 shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">@booking.HotelName</h5>
+                                <p class="card-text">Check-in: @booking.CheckIn.ToString("d")</p>
+                                <p class="card-text">Check-out: @booking.CheckOut.ToString("d")</p>
+                                <p class="card-text">Number of People: @booking.NumberOfPeople</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="text-center">You have no bookings.</p>
+            }
+        </div>
+    </section>
+
+    <!-- Types of Accommodations Section -->
+    <section class="types-of-accommodations py-5">
+        <h3 class="text-center mb-4">Types of Accommodations</h3>
+        <div class="row">
+            @foreach (var accommodation in GetAccommodationTypes())
+            {
+                <div class="col-md-3 mb-4">
+                    <div class="card border-0 shadow">
+                        <img src="@accommodation.ImageUrl" class="card-img-top" alt="@accommodation.Name" style="height: 200px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">@accommodation.Name</h5>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+</div>
+
+<!-- Sample C# Methods to Provide Sample Data -->
+@code {
+    private List<Destination> GetPopularDestinations() => new()
+    {
+        new Destination("Paris", "paris.jpg"),
+        new Destination("New York", "new-york.jpg"),
+        new Destination("Tokyo", "Minato_City,_Tokyo.jpg"),
+        new Destination("London", "london.jpg")
+    };
+
+    private List<Accommodation> GetAccommodationTypes() => new()
+    {
+        new Accommodation("Hotel", "hotel.jpeg"),
+        new Accommodation("Apartment", "apartments.jpeg"),
+        new Accommodation("Resort", "resort.jpeg"),
+        new Accommodation("Villa", "villa.jpeg")
+    };
+
+    private List<Booking> userBookings = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            var userIdClaim = user.Claims.First(claim => claim.Type.Equals("Id")).Value;
+            if (!string.IsNullOrEmpty(userIdClaim))
+            {
+                var response = await Http.GetAsync($"/api/bookings/user/{userIdClaim}");
+                if (response.IsSuccessStatusCode)
+                {
+                    userBookings = await response.Content.ReadFromJsonAsync<List<Booking>>();
+                }
+            }
+        }
+    }
+
+    private record Destination(string Name, string ImageUrl);
+    private record Accommodation(string Name, string ImageUrl);
+}

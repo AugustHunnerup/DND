@@ -57,6 +57,7 @@ public class AuthController(IConfiguration config, IAuthService authService) : C
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
             new Claim(ClaimTypes.Name, user.Username),
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Role, user.Role),
             new Claim("Username", user.Username),
             new Claim("Role", user.Role),
@@ -64,9 +65,14 @@ public class AuthController(IConfiguration config, IAuthService authService) : C
             new Claim("Email", user.Email),
             new Claim("Birthday", user.Birthday.ToString("d")),
             new Claim("Domain", user.Domain),
-            new Claim("SecurityLevel", user.SecurityLevel.ToString())
+            new Claim("SecurityLevel", user.SecurityLevel.ToString()),
+            new Claim("Id", user.Id.ToString()),
+            
         };
-        return [.. claims];
+        return claims.ToList();
+
+        
     }
+    
 
 }

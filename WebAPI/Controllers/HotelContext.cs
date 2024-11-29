@@ -72,5 +72,6 @@ public class HotelContext : DbContext
             SecurityLevel = 4,
             Birthday = new DateTime(1988, 3, 14)
         });
+           
     }
 }

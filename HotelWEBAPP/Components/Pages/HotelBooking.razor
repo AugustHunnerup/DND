@@ -141,14 +141,14 @@
 
             if (user.Identity.IsAuthenticated)
             {
-                var userIdClaim = user.FindFirst(ClaimTypes.NameIdentifier);
+                var userIdClaim = user.Claims.First(claim => claim.Type.Equals("Id")).Value;
                 if (userIdClaim == null)
                 {
                     Console.WriteLine("User ID claim is missing.");
                     return;
                 }
 
-                var userId = userIdClaim.Value;
+                var userId = userIdClaim;
                 if (string.IsNullOrEmpty(userId))
                 {
                     Console.WriteLine("User ID is null or empty.");
@@ -160,7 +160,8 @@
                     HotelName = hotel.Name,
                     CheckIn = checkInDate,
                     CheckOut = checkOutDate,
-                    User = new User { Id = int.Parse(userId) }, // Assuming the user ID is an integer
+                    UserId = int.Parse(userId), // Assuming the user ID is an integer
+                    numberOfPeople = numberOfPeople,
                     HotelDetails = hotel // Updated to match the Booking class
                 };
 
@@ -200,7 +201,8 @@
         public string HotelName { get; set; }
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }
-        public User User { get; set; }
-        public Hotel HotelDetails { get; set; } // Updated to match the Booking class
+        public Hotel HotelDetails { get; set; }
+        public int numberOfPeople { get; set; }//
+        public int UserId { get; set; }
     }
 }

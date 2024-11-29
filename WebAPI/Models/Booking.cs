@@ -3,6 +3,8 @@ public class Booking{
     public string HotelName { get; set; }
     public DateTime CheckIn { get; set; }
     public DateTime CheckOut { get; set; }
-    public User User { get; set; }
-    public Hotel hotelDetails { get; set; }
+    public User? User { get; set; }
+    public int UserId { get; set; }
+
+    public int NumberOfPeople { get; set; }
 }

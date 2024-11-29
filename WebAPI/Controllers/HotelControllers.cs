@@ -43,6 +43,12 @@ public class HotelsController : ControllerBase
 
         try
         {
+            // Retrieve the user from the database
+            //var user = await _context.Users.FindAsync(booking.UserId);
+            //if (user == null) return NotFound("User not found.");
+
+            // Assign the retrieved user to the booking
+            //booking.User = user;
             _context.Bookings.Add(booking); // Assumes Bookings is already part of your DbContext
             await _context.SaveChangesAsync();
             return Ok("Booking successfully saved.");

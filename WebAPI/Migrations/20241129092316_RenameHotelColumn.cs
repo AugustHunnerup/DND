@@ -75,17 +75,11 @@ namespace WebAPI.Migrations
                     CheckIn = table.Column<DateTime>(type: "TEXT", nullable: false),
                     CheckOut = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UserId = table.Column<int>(type: "INTEGER", nullable: false),
-                    hotelDetailsId = table.Column<int>(type: "INTEGER", nullable: false)
+                    NumberOfPeople = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bookings", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Bookings_Hotels_hotelDetailsId",
-                        column: x => x.hotelDetailsId,
-                        principalTable: "Hotels",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Bookings_Users_UserId",
                         column: x => x.UserId,
@@ -118,11 +112,6 @@ namespace WebAPI.Migrations
                 table: "Users",
                 columns: new[] { "Id", "Birthday", "Domain", "Email", "FullName", "Password", "Role", "SecurityLevel", "Username" },
                 values: new object[] { 1, new DateTime(1988, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin.com", "jknr@via.dk", "Jakob Trigger Knop", "1234", "Teacher", 4, "Admin" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Bookings_hotelDetailsId",
-                table: "Bookings",
-                column: "hotelDetailsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bookings_UserId",

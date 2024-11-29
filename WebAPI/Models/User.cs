@@ -10,8 +10,6 @@ public class User
     public string Domain { get; set; } = "";
     public string Role { get; set; } = "";
     public int SecurityLevel { get; set; }
+    public ICollection<Booking> Bookings { get; set; } = [];
 
-
-
-    public ICollection<Booking> bookings { get; set; }
 }

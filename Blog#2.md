@@ -56,6 +56,25 @@ HTTP Method: GET
 Route: /api/[controller]
 
 
+ [HttpPost("login")]
+    public async Task<ActionResult> Login([FromBody] UserLoginDto userLoginDto)
+    {
+        try
+        {
+            User user = await authService.ValidateUser(userLoginDto.Username, userLoginDto.Password);
+            string token = GenerateJwt(user);
+
+            return Ok(token);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+
+HTTP Method: POST
+Route: /api/[controller]/login
 
 
 

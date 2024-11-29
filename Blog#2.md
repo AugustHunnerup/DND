@@ -1,5 +1,55 @@
 ![image](https://github.com/user-attachments/assets/97e97808-b787-4722-8062-27c1e3dcd1e2) 
 
+        // POST: api/HotelControllers
+        [HttpPost]
+        public ActionResult<Hotel> CreateHotel(Hotel hotel)
+        {
+            _context.Hotels.Add(hotel);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(GetHotel), new { id = hotel.Id }, hotel);
+        }
+
+        // PUT: api/HotelControllers/{id}
+        [HttpPut("{id}")]
+        public IActionResult UpdateHotel(int id, Hotel hotel)
+        {
+            if (id != hotel.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(hotel).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+
+            return NoContent();
+        }
+
+        // DELETE: api/HotelControllers/{id}
+        [HttpDelete("{id}")]
+        public IActionResult DeleteHotel(int id)
+        {
+            var hotel = _context.Hotels.Find(id);
+            if (hotel == null)
+            {
+                return NotFound();
+            }
+
+            _context.Hotels.Remove(hotel);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
+    }
+}
+
+HTTP Verbs:
+GET: Retrieves resources.
+POST: Creates new resources.
+PUT: Updates existing resources.
+DELETE: Removes resources.
+
+
+
 1) We learned to make getignore and to connect our servers together by livesharing, restoring and could work on the same project. 
 
 2) We took notes on authentacation, and how that worked.

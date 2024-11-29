@@ -5,13 +5,25 @@ using DNDProject.Domain.DTOs;
 using DNDProject.WebAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace DNDProject.WebAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class AuthController(IConfiguration config, IAuthService authService) : ControllerBase
+public class AuthController : ControllerBase
 {
+    private readonly IConfiguration config;
+    private readonly IAuthService authService;
+    private readonly HotelContext _context;
+
+    public AuthController(IConfiguration config, IAuthService authService, HotelContext context)
+    {
+        this.config = config;
+        this.authService = authService;
+        _context = context;
+    }
 
     [HttpPost("login")]
     public async Task<ActionResult> Login([FromBody] UserLoginDto userLoginDto)
@@ -26,6 +38,24 @@ public class AuthController(IConfiguration config, IAuthService authService) : C
         catch (Exception e)
         {
             return BadRequest(e.Message);
+        }
+    }
+
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] User user)
+    {
+        if (user == null) return BadRequest("User details are required.");
+
+        try
+        {
+            // Add user to the database
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+            return Ok("User successfully registered.");
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Error registering user: {ex.Message}");
         }
     }
 
@@ -66,13 +96,8 @@ public class AuthController(IConfiguration config, IAuthService authService) : C
             new Claim("Birthday", user.Birthday.ToString("d")),
             new Claim("Domain", user.Domain),
             new Claim("SecurityLevel", user.SecurityLevel.ToString()),
-            new Claim("Id", user.Id.ToString()),
-            
+            new Claim("Id", user.Id.ToString())
         };
         return claims.ToList();
-
-        
     }
-    
-
 }

@@ -1,5 +1,6 @@
 ﻿@using Login
 @inherits LayoutComponentBase
+@inject NavigationManager navMgr
 
 <div class="page">
     <div class="sidebar">
@@ -8,6 +9,11 @@
 
     <main>
         <div class="top-row px-4">
+        <AuthorizeView>
+            <NotAuthorized>
+                <button class="btn btn-primary" @onclick=navigate>Create Account</button>
+            </NotAuthorized>
+        </AuthorizeView>
             <LoginButtons />
         </div>
 
@@ -22,3 +28,9 @@
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>
+
+@code{
+    private void navigate(){
+        navMgr.NavigateTo("/createAcc");
+    }
+}

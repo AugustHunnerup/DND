@@ -7,3 +7,10 @@ We have not used ORM in the project. ORM changes the way we interact with the da
 
 2)
 
+We have not used LINQ, but these are the differences between LINQ and traditional SQL. 
+
+
+LINQ is embedded in the programming language (C#). Traditional SQL is seperate from the programming language.
+LINQ are strongly-typed quesries. Traditional SQL quesries are strings. Errors occur at runtime.
+LINQ syntax is decorative and object oriented. Tradtional SQL syntax is also decorative but it is not object-oriented.
+LINQ is easier to refactor since it is strong typing. Traditional SQL is more prone to errors during changes.

@@ -51,8 +51,8 @@ public async Task<ActionResult<IEnumerable<Hotel>>> Get()
 {
     return await _context.Hotels.ToListAsync();
 }
-
-
+HTTP Method: GET
+Route: /api/[controller]
 
 
 We learned to make getignore and to connect our servers together by livesharing, restoring and could work on the same project. 

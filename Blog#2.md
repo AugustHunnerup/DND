@@ -1,5 +1,6 @@
 ![image](https://github.com/user-attachments/assets/97e97808-b787-4722-8062-27c1e3dcd1e2) 
 
+1)
         // POST: api/HotelControllers
         [HttpPost]
         public ActionResult<Hotel> CreateHotel(Hotel hotel)
@@ -48,13 +49,16 @@ POST: Creates new resources.
 PUT: Updates existing resources.
 DELETE: Removes resources.
 
+2)
+![image](https://github.com/user-attachments/assets/73ecc576-8c1b-4949-aa5d-8cce31cdc716)
 
 
-1) We learned to make getignore and to connect our servers together by livesharing, restoring and could work on the same project. 
 
-2) We took notes on authentacation, and how that worked.
+We learned to make getignore and to connect our servers together by livesharing, restoring and could work on the same project. 
 
-3) Renaming our files, that were complicated.
+We took notes on authentacation, and how that worked.
+
+Renaming our files, that were complicated.
 
    
 Reflection from today 01-11-2024:

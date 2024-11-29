@@ -43,12 +43,6 @@ public class HotelsController : ControllerBase
 
         try
         {
-            // Retrieve the user from the database
-            //var user = await _context.Users.FindAsync(booking.UserId);
-            //if (user == null) return NotFound("User not found.");
-
-            // Assign the retrieved user to the booking
-            //booking.User = user;
             _context.Bookings.Add(booking); // Assumes Bookings is already part of your DbContext
             await _context.SaveChangesAsync();
             return Ok("Booking successfully saved.");
@@ -57,5 +51,20 @@ public class HotelsController : ControllerBase
         {
             return StatusCode(500, $"Error saving booking: {ex.Message}");
         }
+    }
+    
+    [HttpGet("user/{userId}")]
+    public async Task<ActionResult<IEnumerable<Booking>>> GetUserBookings(int userId)
+    {
+        var userBookings = await _context.Bookings
+            .Where(b => b.UserId == userId)
+            .ToListAsync();
+
+        if (userBookings == null || !userBookings.Any())
+        {
+            return NotFound("No bookings found for this user.");
+        }
+
+        return Ok(userBookings);
     }
 }

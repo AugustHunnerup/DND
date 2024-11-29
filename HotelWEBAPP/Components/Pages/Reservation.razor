@@ -10,110 +10,89 @@
         <p class="lead">Discover Top Destinations for Your Next Stay</p>
     </header>
 
-    <!-- Popular Destinations Section -->
-    <section class="popular-destinations py-5">
-        <h3 class="text-center mb-4">Popular Destinations</h3>
-        <div class="row">
-            @foreach (var destination in GetPopularDestinations())
-            {
-                <div class="col-md-3 mb-4">
-                    <div class="card border-0 shadow">
-                        <img src="@destination.ImageUrl" class="card-img-top" alt="@destination.Name" style="height: 200px; object-fit: cover;">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">@destination.Name</h5>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-    </section>
-
-    <!-- User Bookings Section -->
-    <section class="user-bookings py-5">
-        <h3 class="text-center mb-4">Your Bookings</h3>
-        <div class="row">
-            @if (userBookings.Any())
-            {
-                @foreach (var booking in userBookings)
+    <!-- Booking List Section -->
+    <section class="booking-list py-5">
+        <h3 class="text-center mb-4">Your Reservations</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Hotel Name</th>
+                    <th>Check-In Date</th>
+                    <th>Check-Out Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (bookings == null)
                 {
-                    <div class="col-md-4 mb-4">
-                        <div class="card border-0 shadow">
-                            <div class="card-body">
-                                <h5 class="card-title">@booking.HotelName</h5>
-                                <p class="card-text">Check-in: @booking.CheckIn.ToString("d")</p>
-                                <p class="card-text">Check-out: @booking.CheckOut.ToString("d")</p>
-                                <p class="card-text">Number of People: @booking.NumberOfPeople</p>
-                            </div>
-                        </div>
-                    </div>
+                    <tr>
+                        <td colspan="5" class="text-center">Loading...</td>
+                    </tr>
                 }
-            }
-            else
-            {
-                <p class="text-center">You have no bookings.</p>
-            }
-        </div>
+                else
+                {
+                    @foreach (var booking in bookings)
+                    {
+                        <tr>
+                            <td>@booking.Id</td>
+                            <td>@booking.HotelName</td>
+                            <td>@booking.CheckIn.ToShortDateString()</td>
+                            <td>@booking.CheckOut.ToShortDateString()</td>
+                            <td>@booking.NumberOfPeople</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
     </section>
-
-    <!-- Types of Accommodations Section -->
-    <section class="types-of-accommodations py-5">
-        <h3 class="text-center mb-4">Types of Accommodations</h3>
-        <div class="row">
-            @foreach (var accommodation in GetAccommodationTypes())
-            {
-                <div class="col-md-3 mb-4">
-                    <div class="card border-0 shadow">
-                        <img src="@accommodation.ImageUrl" class="card-img-top" alt="@accommodation.Name" style="height: 200px; object-fit: cover;">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">@accommodation.Name</h5>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-    </section>
-
 </div>
 
-<!-- Sample C# Methods to Provide Sample Data -->
 @code {
-    private List<Destination> GetPopularDestinations() => new()
-    {
-        new Destination("Paris", "paris.jpg"),
-        new Destination("New York", "new-york.jpg"),
-        new Destination("Tokyo", "Minato_City,_Tokyo.jpg"),
-        new Destination("London", "london.jpg")
-    };
-
-    private List<Accommodation> GetAccommodationTypes() => new()
-    {
-        new Accommodation("Hotel", "hotel.jpeg"),
-        new Accommodation("Apartment", "apartments.jpeg"),
-        new Accommodation("Resort", "resort.jpeg"),
-        new Accommodation("Villa", "villa.jpeg")
-    };
-
-    private List<Booking> userBookings = new();
+    private List<Booking> bookings;
 
     protected override async Task OnInitializedAsync()
     {
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        await LoadBookingsAsync();
+    }
+
+    private async Task LoadBookingsAsync()
+    {
+          var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var user = authState.User;
 
         if (user.Identity.IsAuthenticated)
         {
-            var userIdClaim = user.Claims.First(claim => claim.Type.Equals("Id")).Value;
+            var userIdClaim = user.Claims.FirstOrDefault(claim => claim.Type.Equals("Id"))?.Value;
             if (!string.IsNullOrEmpty(userIdClaim))
             {
-                var response = await Http.GetAsync($"/api/bookings/user/{userIdClaim}");
+                var response = await Http.GetAsync($"/api/Hotels/user/{userIdClaim}");
                 if (response.IsSuccessStatusCode)
                 {
-                    userBookings = await response.Content.ReadFromJsonAsync<List<Booking>>();
+                    bookings = await response.Content.ReadFromJsonAsync<List<Booking>>();
+                }
+                else
+                {
+                    Console.WriteLine($"Error fetching bookings: {response.ReasonPhrase}");
                 }
             }
+            else
+            {
+                Console.WriteLine("User ID claim is missing.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("User is not authenticated.");
         }
     }
 
-    private record Destination(string Name, string ImageUrl);
-    private record Accommodation(string Name, string ImageUrl);
+    public class Booking
+    {
+        public int Id { get; set; }
+        public string HotelName { get; set; }
+        public DateTime CheckIn { get; set; }
+        public DateTime CheckOut { get; set; }
+        public int NumberOfPeople { get; set; }
+    }
 }

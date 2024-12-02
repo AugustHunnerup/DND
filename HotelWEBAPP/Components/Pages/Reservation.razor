@@ -21,13 +21,14 @@
                     <th>Check-In Date</th>
                     <th>Check-Out Date</th>
                     <th>Number of People</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @if (bookings == null)
                 {
                     <tr>
-                        <td colspan="5" class="text-center">Loading...</td>
+                        <td colspan="6" class="text-center">Loading...</td>
                     </tr>
                 }
                 else
@@ -40,6 +41,9 @@
                             <td>@booking.CheckIn.ToShortDateString()</td>
                             <td>@booking.CheckOut.ToShortDateString()</td>
                             <td>@booking.NumberOfPeople</td>
+                            <td>
+                                <button class="btn btn-danger" @onclick="() => DeleteBooking(booking.Id)">Delete</button>
+                            </td>
                         </tr>
                     }
                 }
@@ -49,7 +53,7 @@
 </div>
 
 @code {
-    private List<Booking> bookings;
+    private List<Booking> bookings = new List<Booking>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -58,7 +62,7 @@
 
     private async Task LoadBookingsAsync()
     {
-          var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var user = authState.User;
 
         if (user.Identity.IsAuthenticated)
@@ -84,6 +88,21 @@
         else
         {
             Console.WriteLine("User is not authenticated.");
+        }
+    }
+
+    private async Task DeleteBooking(int bookingId)
+    {
+        var response = await Http.DeleteAsync($"api/Hotels/bookings/{bookingId}");
+        if (response.IsSuccessStatusCode)
+        {
+            // Remove the booking from the list
+            bookings = bookings.Where(b => b.Id != bookingId).ToList();
+        }
+        else
+        {
+            // Handle error
+            Console.WriteLine("Error deleting booking");
         }
     }
 

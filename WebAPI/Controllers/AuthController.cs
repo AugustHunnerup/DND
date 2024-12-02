@@ -90,6 +90,7 @@ public class AuthController : ControllerBase
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Role, user.Role),
             new Claim("Username", user.Username),
+            new Claim("Password", user.Password),
             new Claim("Role", user.Role),
             new Claim("Fullname", user.FullName),
             new Claim("Email", user.Email),

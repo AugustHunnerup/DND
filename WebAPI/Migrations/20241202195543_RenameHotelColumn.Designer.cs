@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(HotelContext))]
-    [Migration("20241129144100_RenameHotelColumn")]
+    [Migration("20241202195543_RenameHotelColumn")]
     partial class RenameHotelColumn
     {
         /// <inheritdoc />

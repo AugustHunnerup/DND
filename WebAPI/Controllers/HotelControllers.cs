@@ -71,8 +71,7 @@ public class HotelsController : ControllerBase
     [HttpGet("all-bookings")]
     public async Task<ActionResult<IEnumerable<Booking>>> GetAllBookings()
     {
-        var allBookings = await _context.Bookings
-            .ToListAsync();
+        var allBookings = await _context.Bookings.ToListAsync();
 
         if (allBookings == null || !allBookings.Any())
         {
@@ -80,5 +79,73 @@ public class HotelsController : ControllerBase
         }
 
         return Ok(allBookings);
+    }
+
+    [HttpGet("user-info/{userId}")]
+    public async Task<ActionResult<User>> GetUserInfo(int userId)
+    {
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+        if (user == null)
+        {
+            return NotFound();
+        }
+        return Ok(user);
+    }
+
+    [HttpPut("user-info/{userId}")]
+    public async Task<IActionResult> UpdateUserInfo(int userId, [FromBody] User updatedUser)
+    {
+        if (userId != updatedUser.Id)
+        {
+            return BadRequest("User ID mismatch.");
+        }
+
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+        if (user == null)
+        {
+            return NotFound();
+        }
+
+        user.Email = updatedUser.Email;
+        user.Username = updatedUser.Username;
+        user.Password = updatedUser.Password;
+        user.Birthday = updatedUser.Birthday;
+        user.Domain = updatedUser.Domain;
+        user.Role = updatedUser.Role;
+        user.SecurityLevel = updatedUser.SecurityLevel;
+        _context.Entry(user).State = EntityState.Modified;
+
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!_context.Users.Any(e => e.Id == userId))
+            {
+                return NotFound();
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        return NoContent();
+    }
+
+    [HttpDelete("bookings/{id}")]
+    public async Task<IActionResult> DeleteBooking(int id)
+    {
+        var booking = await _context.Bookings.FirstOrDefaultAsync(b => b.Id == id);
+        if (booking == null)
+        {
+            return NotFound();
+        }
+
+        _context.Bookings.Remove(booking);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
     }
 }

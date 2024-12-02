@@ -1,0 +1,108 @@
+@page "/userinfo"
+@inject NavigationManager navMgr
+@inject HttpClient Http
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<h3>User Information</h3>
+
+@if (user == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <EditForm Model="user" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div>
+            <label>Username:</label>
+            <InputText @bind-Value="user.Username" class="form-control" />
+        </div>
+        <div>
+            <label>Password:</label>
+            <InputText @bind-Value="user.Password" class="form-control" />
+        </div>
+        <div>
+            <label>Email:</label>
+            <InputText @bind-Value="user.Email" class="form-control" />
+        </div>
+        <div>
+            <label>Full Name:</label>
+            <InputText @bind-Value="user.FullName" class="form-control" />
+        </div>
+        <div>
+            <label>Birthday:</label>
+            <InputDate @bind-Value="user.Birthday" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </EditForm>
+}
+
+@code {
+    private User? user;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var currentUser = authState.User;
+
+        if (currentUser.Identity.IsAuthenticated)
+        {
+            var userIdClaim = currentUser.Claims.FirstOrDefault(claim => claim.Type.Equals("Id"))?.Value;
+            if (!string.IsNullOrEmpty(userIdClaim))
+            {
+                var response = await Http.GetAsync($"/api/hotels/user-info/{userIdClaim}");
+                if (response.IsSuccessStatusCode)
+                {
+                    user = await response.Content.ReadFromJsonAsync<User>();
+                }
+                else
+                {
+                    Console.WriteLine($"Error fetching user info: {response.ReasonPhrase}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("User ID claim is missing.");
+            }
+        }
+        else
+        {
+            navMgr.NavigateTo("/login");
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var currentUser = authState.User;
+
+        if (currentUser.Identity.IsAuthenticated)
+        {
+            var userIdClaim = currentUser.Claims.FirstOrDefault(claim => claim.Type.Equals("Id"))?.Value;
+            var response = await Http.PutAsJsonAsync($"/api/hotels/user-info/{userIdClaim}", user);
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("User information updated successfully.");
+            }
+            else
+            {
+                Console.WriteLine($"Error updating user info: {response.ReasonPhrase}");
+            }
+        }
+    }
+
+    public class User
+    {
+        public int Id { get; set; }
+        public string Username { get; set; } = "";
+        public string Password { get; set; } = "";
+        public string Email { get; set; } = "";
+        public string FullName { get; set; } = "";
+        public DateTime Birthday { get; set; }
+        public string Domain { get; set; } = "";
+        public string Role { get; set; } = "";
+        public int SecurityLevel { get; set; }
+    }
+}

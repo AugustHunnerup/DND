@@ -28,7 +28,7 @@
     </div>
     <div class="form-group">
         <label for="birthday">Birthday</label>
-        <InputDate id="birthday" class="form-control" @bind-Value="newUser.Birthday" />
+        <InputDate id="birthday" class="form-control" @bind-Value="newUser.Birthday" min="1900-01-01"/>
     </div>
     <button type="submit" class="btn btn-primary">Register</button>
 </EditForm>

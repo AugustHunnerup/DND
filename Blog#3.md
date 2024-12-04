@@ -2,6 +2,13 @@
 
 1)
 User Stories: As a user, I want to be able to book a hotel from the system so that I can see the best option for both price and traveling length.
+
+
+
+
+
+
+
 private async Task BookHotel(Hotel hotel)
     {
         if (checkInDate == DateTime.MinValue || checkOutDate == DateTime.MinValue)

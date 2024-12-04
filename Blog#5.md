@@ -28,10 +28,28 @@ The image shows a C# class named User, which serves as a model in the applicatio
 
 2)
 
-We have not used LINQ, but these are the differences between LINQ and traditional SQL. 
-
-
+Differences between LINQ and Traditional SQL:
 LINQ is embedded in the programming language (C#). Traditional SQL is seperate from the programming language.
 LINQ are strongly-typed quesries. Traditional SQL quesries are strings. Errors occur at runtime.
 LINQ syntax is decorative and object oriented. Tradtional SQL syntax is also decorative but it is not object-oriented.
 LINQ is easier to refactor since it is strong typing. Traditional SQL is more prone to errors during changes.
+
+
+The code example below shows the use of LINQ (Language Integrated Query) within the ASP.NET Core Web API method to query a database for hotels located in a specified country.
+
+![image](https://github.com/user-attachments/assets/9d0c39d3-0e39-4606-bb3f-92701e5d32c4)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

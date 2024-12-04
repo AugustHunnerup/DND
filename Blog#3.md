@@ -1,6 +1,13 @@
 ![image](https://github.com/user-attachments/assets/bdf2c7dd-1936-480f-a06b-acb3ad158937)
 
 1)
+User Stories: As a user, I want to be able to book a hotel from the system so that I can see the best option for both price and traveling length.
+
+As a user, I want to be able to Login to the booking system with my credentials so that I can access my saved trips, and manage my bookings while also being able to change my password.
+
+As a user, I want to be able to view my current and previous bookings so that I can easily track my travel plans.
+
+As a user, I want to be able to cancel or modify my bookings, so that I can change my hotel booking.
 
 2) Our application consists of several key pages, each serving a specific function:
 

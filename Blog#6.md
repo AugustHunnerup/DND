@@ -16,7 +16,7 @@ a. user booking and authentification
    - made access control to differentiate access levels between user roles (e.g., Admin, User).
 
 
-b. learning outcomes
+3. learning outcomes
    
 This project has significantly improved the booking process for users while providing tools to manage their reservation operations. Beyond delivering the product, this project taught us valuable lessons about balancing user experience with technical efficiency, building web based systems.
 The hotel's booking system is a platform designed to bridge the gap between customers and hotels, offering security and growth opportunities for the hospitality industry.
@@ -29,5 +29,5 @@ The hotel's booking system is a platform designed to bridge the gap between cust
 
 This feature turned out to be too large in scope to implement within the project timeline. The complexity of handling cancellations and modifications exceeded our available resources and time. Despite our best efforts, the group was unable to fully realize this feature within the project constraints. Moving forward, we would prioritize breaking down such large features into smaller, more manageable tasks to ensure feasibility and progress.
 
-5)
+
 

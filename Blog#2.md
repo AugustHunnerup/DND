@@ -73,7 +73,11 @@ public class HotelContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
 
   This class defines the database schema by mapping the entities; Hotels, Events, Bookings, Users to tables.
-
+Here are the models that we used to create the tables:
+  ![image](https://github.com/user-attachments/assets/710426af-46e5-4264-88b8-7659d13a0ed3)
+  ![image](https://github.com/user-attachments/assets/25bd74ba-2af2-460b-9d19-559029ce37e1)
+  ![image](https://github.com/user-attachments/assets/103206ed-03d3-4e7f-94ef-ea337a311aa4)
+  ![image](https://github.com/user-attachments/assets/1988bbc4-6135-4609-82ec-90ab31a71a5f)
 
 
 

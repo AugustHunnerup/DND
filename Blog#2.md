@@ -50,6 +50,7 @@ DELETE: Removes resources.
 
 
 2)
+![image](https://github.com/user-attachments/assets/d0611629-4755-402f-8ce0-4cac26083a76)
 
 
 3)

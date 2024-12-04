@@ -31,7 +31,8 @@ We have used authorized in order to ensure the user must be logged to make a boo
 
 ![Skærmbillede 2024-12-04 kl  15 08 28](https://github.com/user-attachments/assets/27749565-a545-43ed-bfd2-64043df62144)
 
-![Skærmbillede 2024-12-04 kl  15 08 20](https://github.com/user-attachments/assets/8aa35966-5051-4f79-90f3-cd2ba052eeaf)
+![Skærmbillede 2024-12-04 kl  15 10 07](https://github.com/user-attachments/assets/e16ec8cf-0056-4a38-bc57-dbdb44386d14)
+
 
 
 

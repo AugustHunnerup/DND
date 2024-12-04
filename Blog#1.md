@@ -14,7 +14,7 @@ By creating our own booking system, we hope to not only improve user experience 
 User Stories:
 As a user, I want to be able to book a hotel from the system so that I can see the best option for both price and traveling length. 
 
-As a user, I want to be able to Login to the booking system with my credentials so that I can access my saved trips, view personalized recommendations and manage my bookings. 
+As a user, I want to be able to Login to the booking system with my credentials so that I can access my saved trips, view personalized recommendations and manage my bookings while also being able to change my password. 
 
 As a user, I want to be able to view my current and previous bookings so that I can easily track my travel plans.
 

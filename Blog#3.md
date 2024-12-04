@@ -94,7 +94,7 @@ User Class: The User class defines the structure of a user object with propertie
 
 
 3)
-In our hotel booking project, the frontend connects to the web system by making HTTP requests to the backend, which processes the data and sends back responses. The frontend interacts with the backend using APIs. These APIs help to manage user actions like booking hotels, logging in, viewing and canceling bookings, and getting personalized recommendations.
+In our hotel booking project, the frontend connects to the web system by making HTTP requests to the backend, which processes the data and sends back responses. The frontend interacts with the backend using APIs. These APIs help to manage user actions like booking hotels, logging in, viewing and canceling bookings.
 
 
 

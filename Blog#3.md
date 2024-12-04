@@ -16,6 +16,7 @@ As a user, I want to be able to view my current and previous bookings so that I 
 
 As a user, I want to be able to cancel or modify my bookings, so that I can change my hotel booking.
 ![image](https://github.com/user-attachments/assets/b40fb811-951b-4756-b8b0-54030fcae4d9)
+
 2) Our application consists of several key pages, each serving a specific function:
 
 Home Page: Provides a general introduction and navigation to other pages, such as events and hotels.

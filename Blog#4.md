@@ -19,18 +19,14 @@ User must fill out two fields to enter their username and password. Using the @b
 Making the authentication request using an IAuthService( assumed to be injected into the component) is handled by the LoginAsync method. The method first clears any already existing error messages by making errorLabel a blank string. Then, it uses the injected authService's LoginAsync method to attempt logging the user in with the userName and password that were provided. If the login is successful, the app uses the navMgr to navigate to the root of the app( "/"). NavigateTo( "/").
 If an error occurs( for example, invalid login credentials), the exception is caught, logged to the console, and the errorLabel is updated with the error message that will appear on the UI.
 
+These are the two policys we have made, where admin is securtiy level 2 and costumer is security level 1. This ensures the costumer would not have access to the whole page
+
 
 2)
+These are the two policys we have made, where admin is securtiy level 2 and costumer is security level 1. This ensures the costumer would not have access to the whole page.
 
-![Skærmbillede 2024-11-29 kl  11 11 09](https://github.com/user-attachments/assets/de32308e-cfe9-49c7-847a-39e3381dbdac)
-
-
-The procedure begins when a user sends a server a login request. The controller method receives this request as a UserLoginDto object, which typically includes a username and password.
-
-![Skærmbillede 2024-11-29 kl  11 12 56](https://github.com/user-attachments/assets/20a83e52-7681-454c-bd4e-8470ee27973e)
+![Skærmbillede 2024-12-04 kl  15 03 20](https://github.com/user-attachments/assets/af1ce6a3-4408-46b0-bdb3-2597e7f0754f)
 
 
-The server generates a JWT token once the user has been authenticated( credentials have been verified) to grant them permission to make future requests:
 
-When a request is received with a valid JWT token, the server can extract the claims from the token and use them to determine whether to grant authorization. For instance, the server can check the user's role( ClaimTypes). Role) to make sure they have the necessary authorizations to access a particular resource.
 

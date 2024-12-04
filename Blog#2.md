@@ -43,6 +43,7 @@ We use RESTful web API to manage hotel data, user authentication, and bookings. 
     }
 
 ![image](https://github.com/user-attachments/assets/7136e338-b2a5-4dfc-b769-a0afe01e8b94)
+![image](https://github.com/user-attachments/assets/f7ba46cd-98e2-4811-99cb-7778c9ed81ad)
 
 
 HTTP Verbs:

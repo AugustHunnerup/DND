@@ -94,9 +94,13 @@ User Class: The User class defines the structure of a user object with propertie
 
 
 3)
-In our hotel booking project, the frontend connects to the web system by making HTTP requests to the backend, which processes the data and sends back responses. The frontend interacts with the backend using APIs. These APIs help to manage user actions like booking hotels, logging in, viewing and canceling bookings.
-
-
+Dependency Injection:
+The HttpClient service is injected into the Razor component using the @inject directive. This allows the component to make HTTP requests to the web service.
+Example of Making HTTP Requests:
+The HttpClient service is used to make various types of HTTP requests (GET, POST, PUT, DELETE) to interact with the web service.
+These requests are typically made in asynchronous methods to avoid blocking the UI thread.
+Example of HTTP GET Request:
+![image](https://github.com/user-attachments/assets/d6e94b5a-3cbc-440d-85ad-1dd17fdc9404)
 
 
 

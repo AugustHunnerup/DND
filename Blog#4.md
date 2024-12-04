@@ -23,7 +23,7 @@ These are the two policys we have made, where admin is securtiy level 2 and cost
 
 
 2)
-These are the two policys we have made, where admin is securtiy level 2 and costumer is security level 1. This ensures the costumer would not have access to the whole page.
+These are the two policies we have made, where admin is securtiy level 2 and costumer is security level 1. This ensures the costumer would not have access to the whole page.
 
 ![Skærmbillede 2024-12-04 kl  15 03 20](https://github.com/user-attachments/assets/af1ce6a3-4408-46b0-bdb3-2597e7f0754f)
 
@@ -32,7 +32,12 @@ We have used authorized in order to ensure the user must be logged to make a boo
 ![Skærmbillede 2024-12-04 kl  15 08 20](https://github.com/user-attachments/assets/1a31ba0a-047f-4a97-92ac-ace826d7b38b)
 
 
+We have used our policies in order to make the costumer see the reservation page and the admin see the all bookings page. Making sure the correct pages are showed to the correct user. 
+
+
 ![Skærmbillede 2024-12-04 kl  15 10 07](https://github.com/user-attachments/assets/e16ec8cf-0056-4a38-bc57-dbdb44386d14)
+
+
 
 
 

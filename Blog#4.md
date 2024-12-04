@@ -29,7 +29,8 @@ These are the two policys we have made, where admin is securtiy level 2 and cost
 
 We have used authorized in order to ensure the user must be logged to make a booking of hotel. Without a log in an message will be showed that would require them to log in.
 
-![Skærmbillede 2024-12-04 kl  15 08 28](https://github.com/user-attachments/assets/27749565-a545-43ed-bfd2-64043df62144)
+![Skærmbillede 2024-12-04 kl  15 08 20](https://github.com/user-attachments/assets/1a31ba0a-047f-4a97-92ac-ace826d7b38b)
+
 
 ![Skærmbillede 2024-12-04 kl  15 10 07](https://github.com/user-attachments/assets/e16ec8cf-0056-4a38-bc57-dbdb44386d14)
 

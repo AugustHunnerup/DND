@@ -148,4 +148,20 @@ public class HotelsController : ControllerBase
 
         return NoContent();
     }
+    
+    [HttpGet("get-current-password/{userId:int}")]
+    public async Task<ActionResult<string>> GetCurrentPassword(int userId)
+    {
+        var user = await _context.Users.FirstOrDefaultAsync(b => b.Id == userId);
+        if (user == null)
+        {
+            return NotFound("User not found.");
+        }
+
+
+        var currentPassword = user.Password; 
+        return Ok(currentPassword);
+    }
+    
+
 }

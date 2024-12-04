@@ -2,72 +2,8 @@
 
 1)
 User Stories: As a user, I want to be able to book a hotel from the system so that I can see the best option for both price and traveling length.
-
-
-
-
-
-
-
-private async Task BookHotel(Hotel hotel)
-    {
-        if (checkInDate == DateTime.MinValue || checkOutDate == DateTime.MinValue)
-        {
-            Console.WriteLine("Please select both check-in and check-out dates.");
-        }
-        else
-        {
-            var authState = await authenticationStateTask;
-            var user = authState.User;
-
-            if (user.Identity.IsAuthenticated)
-            {
-                var userIdClaim = user.Claims.First(claim => claim.Type.Equals("Id")).Value;
-                if (userIdClaim == null)
-                {
-                    Console.WriteLine("User ID claim is missing.");
-                    return;
-                }
-
-                var userId = userIdClaim;
-                if (string.IsNullOrEmpty(userId))
-                {
-                    Console.WriteLine("User ID is null or empty.");
-                    return;
-                }
-
-                var booking = new Booking
-                {
-                    HotelName = hotel.Name,
-                    CheckIn = checkInDate,
-                    CheckOut = checkOutDate,
-                    UserId = int.Parse(userId), // Assuming the user ID is an integer
-                    numberOfPeople = numberOfPeople,
-                    Price = hotel.Price,
-                    HotelDetails = hotel // Updated to match the Booking class
-                };
-
-                // Save booking data to the database
-                var response = await Http.PostAsJsonAsync("/api/hotels/add-booking", booking);
-                if (response.IsSuccessStatusCode)
-                {
-                    // Navigate to the booking confirmation page
-                    //Navigation.NavigateTo("/booking");
-                    Console.WriteLine("Saved booking.");
-                }
-                else
-                {
-                    var errorMessage = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine($"Error saving booking: {errorMessage}");
-                }
-            }
-            else
-            {
-                Console.WriteLine("User is not authenticated.");
-            }
-        }
-    }
-
+![image](https://github.com/user-attachments/assets/cd71cfef-22b7-4257-8771-0cc361fe5ef5)
+![image](https://github.com/user-attachments/assets/c0557887-d516-4926-8642-fba3c577028d)
 
 As a user, I want to be able to Login to the booking system with my credentials so that I can access my saved trips, and manage my bookings while also being able to change my password.
 

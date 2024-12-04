@@ -23,7 +23,11 @@ The hotel's booking system is a platform designed to bridge the gap between cust
 
    
 
-4)
+4)The group decided to set a clear scope early in the project and defined several user stories to guide development. One user story presented significant challenges:
+
+"As a user, I want to be able to cancel or modify my bookings, so that I can change my hotel booking."
+
+This feature turned out to be too large in scope to implement within the project timeline. The complexity of handling cancellations and modifications exceeded our available resources and time. Despite our best efforts, the group was unable to fully realize this feature within the project constraints. Moving forward, we would prioritize breaking down such large features into smaller, more manageable tasks to ensure feasibility and progress.
 
 5)
 

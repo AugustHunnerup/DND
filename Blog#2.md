@@ -50,7 +50,7 @@ DELETE: Removes resources.
 
 
 2)
-
+Here are two examples of API endpoints. We have used GET and POST in the examples below:
 
 [HttpGet]
 public async Task<ActionResult<IEnumerable<Hotel>>> Get()

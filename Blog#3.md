@@ -6,11 +6,16 @@ User Stories: As a user, I want to be able to book a hotel from the system so th
 ![image](https://github.com/user-attachments/assets/c0557887-d516-4926-8642-fba3c577028d)
 
 As a user, I want to be able to Login to the booking system with my credentials so that I can access my saved trips, and manage my bookings while also being able to change my password.
+![image](https://github.com/user-attachments/assets/29ccc832-da46-4891-817e-a6cd7892367d)
+![image](https://github.com/user-attachments/assets/b49baf01-7d97-45b5-8f4b-24679027937d)
+![image](https://github.com/user-attachments/assets/b895617c-974c-41fa-aeb8-a406bad098e9)
+![image](https://github.com/user-attachments/assets/384df4a6-0d17-41e6-9c83-4d03175b462d)
 
 As a user, I want to be able to view my current and previous bookings so that I can easily track my travel plans.
+![image](https://github.com/user-attachments/assets/0e922a19-5eda-4710-8fe8-5364f5f5353a)
 
 As a user, I want to be able to cancel or modify my bookings, so that I can change my hotel booking.
-
+![image](https://github.com/user-attachments/assets/b40fb811-951b-4756-b8b0-54030fcae4d9)
 2) Our application consists of several key pages, each serving a specific function:
 
 Home Page: Provides a general introduction and navigation to other pages, such as events and hotels.

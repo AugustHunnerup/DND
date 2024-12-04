@@ -38,7 +38,8 @@ namespace WebAPI.Migrations
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     ImageUrl = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
-                    Country = table.Column<string>(type: "TEXT", nullable: false)
+                    Country = table.Column<string>(type: "TEXT", nullable: false),
+                    Price = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -75,6 +76,7 @@ namespace WebAPI.Migrations
                     CheckIn = table.Column<DateTime>(type: "TEXT", nullable: false),
                     CheckOut = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Price = table.Column<int>(type: "INTEGER", nullable: false),
                     NumberOfPeople = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -130,41 +132,41 @@ namespace WebAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "Hotels",
-                columns: new[] { "Id", "Country", "Description", "ImageUrl", "Name" },
+                columns: new[] { "Id", "Country", "Description", "ImageUrl", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, "Denmark", "A modern hotel in the heart of Copenhagen.", "/images/CPH.jpg", "Hotel Copenhagen" },
-                    { 2, "Denmark", "A cozy hotel in Aarhus.", "/images/Aarhus.jpg", "Hotel Aarhus" },
-                    { 3, "Germany", "An upscale hotel near Brandenburg Gate.", "/images/hotelb.jpg", "Hotel Berlin" },
-                    { 4, "Germany", "A charming hotel in Munich.", "/images/hotelmun.jpg", "Hotel Munich" },
-                    { 5, "France", "A romantic hotel with views of the Eiffel Tower.", "/images/hotelp.jpg", "Hotel Paris" },
-                    { 6, "France", "A beautiful hotel in Lyon.", "/images/hotellyon.jpg", "Hotel Lyon" },
-                    { 7, "Canada", "A charming hotel in the city center.", "/images/hoteltoronto.jpg", "Hotel Toronto" },
-                    { 8, "Canada", "A stylish hotel in Milan.", "/images/hotelv.jpg", "Hotel Vancouver" },
-                    { 9, "Australia", "A vibrant hotel near the beach.", "/images/hotelss.jpg", "Hotel Sydney" },
-                    { 10, "Australia", "A luxurious hotel in the capital.", "/images/hotelc.jpg", "Hotel Canberra" },
-                    { 11, "Japan", "A modern hotel in Manchester.", "/images/hotelttt.jpg", "Hotel Tokyo" },
-                    { 12, "Japan", "A stylish hotel in the city.", "/images/hotelosa.jpg", "Hotel Osaka" },
-                    { 13, "Brazil", "A stylish hotel in the city.", "/images/hotelbra.jpg", "Hotel Brasilia" },
-                    { 14, "Brazil", "A stylish hotel in the city.", "/images/hotelpao.jpg", "Hotel Sao Paulo" },
-                    { 15, "China", "A stylish hotel in the city.", "/images/hotelbei.jpg", "Hotel Beijing" },
-                    { 16, "China", "A stylish hotel in the city.", "/images/hotelshang.jpg", "Hotel Shanghai" },
-                    { 17, "India", "A stylish hotel in the city.", "/images/hotelmom.jpg", "Hotel Mumbai" },
-                    { 18, "India", "A stylish hotel in the city.", "/images/hotelcurry.jpg", "Hotel Surat" },
-                    { 19, "Russia", "A stylish hotel in the city.", "/images/hotelputin.jpg", "Hotel Moscow" },
-                    { 20, "Russia", "A stylish hotel in the city.", "/images/hotelsaint.jpg", "Hotel Saint Petersburg" },
-                    { 21, "South Africa", "A stylish hotel in the city.", "/images/hoteltown.jpg", "Hotel Cape Town" },
-                    { 22, "South Africa", "A stylish hotel in the city.", "/images/hotelburg.jpg", "Hotel Johannesburg" },
-                    { 23, "Egypt", "A stylish hotel in the city.", "/images/hotelsalah.jpg", "Hotel Cairo" },
-                    { 24, "Egypt", "A stylish hotel in the city.", "/images/hotelgiza.jpg", "Hotel Giza" },
-                    { 25, "Argentina", "A stylish hotel in the city.", "/images/hotelaries.jpg", "Hotel Buenos Aires" },
-                    { 26, "Argentina", "A stylish hotel in the city.", "/images/hotelcor.jpg", "Hotel Cordoba" },
-                    { 27, "Mexico", "A stylish hotel in the city.", "/images/hotelmexico.jpg", "Hotel Mexico City" },
-                    { 28, "Mexico", "A stylish hotel in the city.", "/images/hotelg.jpg", "Hotel Guadalajara" },
-                    { 29, "Turkey", "A stylish hotel in the city.", "/images/hotelis.jpg", "Hotel Istanbul" },
-                    { 30, "Turkey", "A stylish hotel in the city.", "/images/hotelan.jpg", "Hotel Antalya" },
-                    { 31, "Greece", "A stylish hotel in the city.", "/images/hotelat.jpg", "Hotel Athens" },
-                    { 32, "Greece", "A stylish hotel in the city.", "/images/hotelrho.jpg", "Hotel Rhodes" }
+                    { 1, "Denmark", "A modern hotel in the heart of Copenhagen.", "/images/CPH.jpg", "Hotel Copenhagen", 250 },
+                    { 2, "Denmark", "A cozy hotel in Aarhus.", "/images/Aarhus.jpg", "Hotel Aarhus", 120 },
+                    { 3, "Germany", "An upscale hotel near Brandenburg Gate.", "/images/hotelb.jpg", "Hotel Berlin", 285 },
+                    { 4, "Germany", "A charming hotel in Munich.", "/images/hotelmun.jpg", "Hotel Munich", 150 },
+                    { 5, "France", "A romantic hotel with views of the Eiffel Tower.", "/images/hotelp.jpg", "Hotel Paris", 287 },
+                    { 6, "France", "A beautiful hotel in Lyon.", "/images/hotellyon.jpg", "Hotel Lyon", 137 },
+                    { 7, "Canada", "A charming hotel in the city center.", "/images/hoteltoronto.jpg", "Hotel Toronto", 184 },
+                    { 8, "Canada", "A stylish hotel in Milan.", "/images/hotelv.jpg", "Hotel Vancouver", 193 },
+                    { 9, "Australia", "A vibrant hotel near the beach.", "/images/hotelss.jpg", "Hotel Sydney", 152 },
+                    { 10, "Australia", "A luxurious hotel in the capital.", "/images/hotelc.jpg", "Hotel Canberra", 163 },
+                    { 11, "Japan", "A modern hotel in Manchester.", "/images/hotelttt.jpg", "Hotel Tokyo", 243 },
+                    { 12, "Japan", "A stylish hotel in the city.", "/images/hotelosa.jpg", "Hotel Osaka", 175 },
+                    { 13, "Brazil", "A stylish hotel in the city.", "/images/hotelbra.jpg", "Hotel Brasilia", 190 },
+                    { 14, "Brazil", "A stylish hotel in the city.", "/images/hotelpao.jpg", "Hotel Sao Paulo", 126 },
+                    { 15, "China", "A stylish hotel in the city.", "/images/hotelbei.jpg", "Hotel Beijing", 172 },
+                    { 16, "China", "A stylish hotel in the city.", "/images/hotelshang.jpg", "Hotel Shanghai", 229 },
+                    { 17, "India", "A stylish hotel in the city.", "/images/hotelmom.jpg", "Hotel Mumbai", 268 },
+                    { 18, "India", "A stylish hotel in the city.", "/images/hotelcurry.jpg", "Hotel Surat", 222 },
+                    { 19, "Russia", "A stylish hotel in the city.", "/images/hotelputin.jpg", "Hotel Moscow", 103 },
+                    { 20, "Russia", "A stylish hotel in the city.", "/images/hotelsaint.jpg", "Hotel Saint Petersburg", 200 },
+                    { 21, "South Africa", "A stylish hotel in the city.", "/images/hoteltown.jpg", "Hotel Cape Town", 130 },
+                    { 22, "South Africa", "A stylish hotel in the city.", "/images/hotelburg.jpg", "Hotel Johannesburg", 190 },
+                    { 23, "Egypt", "A stylish hotel in the city.", "/images/hotelsalah.jpg", "Hotel Cairo", 110 },
+                    { 24, "Egypt", "A stylish hotel in the city.", "/images/hotelgiza.jpg", "Hotel Giza", 145 },
+                    { 25, "Argentina", "A stylish hotel in the city.", "/images/hotelaries.jpg", "Hotel Buenos Aires", 120 },
+                    { 26, "Argentina", "A stylish hotel in the city.", "/images/hotelcor.jpg", "Hotel Cordoba", 125 },
+                    { 27, "Mexico", "A stylish hotel in the city.", "/images/hotelmexico.jpg", "Hotel Mexico City", 225 },
+                    { 28, "Mexico", "A stylish hotel in the city.", "/images/hotelg.jpg", "Hotel Guadalajara", 175 },
+                    { 29, "Turkey", "A stylish hotel in the city.", "/images/hotelis.jpg", "Hotel Istanbul", 250 },
+                    { 30, "Turkey", "A stylish hotel in the city.", "/images/hotelan.jpg", "Hotel Antalya", 300 },
+                    { 31, "Greece", "A stylish hotel in the city.", "/images/hotelat.jpg", "Hotel Athens", 150 },
+                    { 32, "Greece", "A stylish hotel in the city.", "/images/hotelrho.jpg", "Hotel Rhodes", 200 }
                 });
 
             migrationBuilder.InsertData(

@@ -5,6 +5,7 @@ public class Booking{
     public DateTime CheckOut { get; set; }
     public User? User { get; set; }
     public int UserId { get; set; }
-
+    public int Price { get; set; }
     public int NumberOfPeople { get; set; }
+    
 }

@@ -59,6 +59,7 @@
                         <div>
                             <strong>@hotel.Name</strong><br />
                             <em>@hotel.Description</em><br />
+                            <em>@hotel.Price DKK</em><br/>
                             <img src="@(@Configuration["WebAPIBaseAddress"] + @hotel.ImageUrl)" alt="@hotel.Name" width="150" /><br /><br />
                         </div>
                         <AuthorizeView>
@@ -162,6 +163,7 @@
                     CheckOut = checkOutDate,
                     UserId = int.Parse(userId), // Assuming the user ID is an integer
                     numberOfPeople = numberOfPeople,
+                    Price = hotel.Price,
                     HotelDetails = hotel // Updated to match the Booking class
                 };
 
@@ -193,6 +195,7 @@
         public string ImageUrl { get; set; }
         public string Description { get; set; }
         public string Country { get; set; }
+        public int Price { get; set; }
     }
 
     public class Booking
@@ -202,7 +205,8 @@
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }
         public Hotel HotelDetails { get; set; }
-        public int numberOfPeople { get; set; }//
+        public int numberOfPeople { get; set; }
+        public int Price { get; set; }
         public int UserId { get; set; }
     }
 }

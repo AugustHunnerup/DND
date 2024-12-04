@@ -21,6 +21,7 @@
                     <th>Check-In Date</th>
                     <th>Check-Out Date</th>
                     <th>Number of People</th>
+                    <th>Total Price (DKK)</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,6 +42,7 @@
                             <td>@booking.CheckIn.ToShortDateString()</td>
                             <td>@booking.CheckOut.ToShortDateString()</td>
                             <td>@booking.NumberOfPeople</td>
+                            <td>@booking.TotalPrice</td>
                         </tr>
                     }
                 }
@@ -51,6 +53,7 @@
 
 @code {
     private List<Booking> bookings;
+    private decimal totalPrice = 0;
 
     protected override async Task OnInitializedAsync()
     {
@@ -64,12 +67,18 @@
                 if (response.IsSuccessStatusCode)
                 {
                     bookings = await response.Content.ReadFromJsonAsync<List<Booking>>();
+                    CalculateTotalPrice();
                 }
                 else
                 {
                     Console.WriteLine($"Error fetching bookings: {response.ReasonPhrase}");
                 }
+                
             
+    }
+    private void CalculateTotalPrice()
+    {
+        totalPrice = bookings.Sum(booking => booking.Price * booking.NumberOfPeople);
     }
 
     public class Booking
@@ -80,5 +89,7 @@
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }
         public int NumberOfPeople { get; set; }
+        public int Price { get; set; }
+        public decimal TotalPrice => Price * NumberOfPeople;
     }
 }

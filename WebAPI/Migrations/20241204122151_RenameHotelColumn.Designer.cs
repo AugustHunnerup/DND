@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(HotelContext))]
-    [Migration("20241202195543_RenameHotelColumn")]
+    [Migration("20241204122151_RenameHotelColumn")]
     partial class RenameHotelColumn
     {
         /// <inheritdoc />
@@ -36,6 +36,9 @@ namespace WebAPI.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("NumberOfPeople")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Price")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("UserId")
@@ -363,6 +366,9 @@ namespace WebAPI.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Price")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.ToTable("Hotels");
@@ -374,7 +380,8 @@ namespace WebAPI.Migrations
                             Country = "Denmark",
                             Description = "A modern hotel in the heart of Copenhagen.",
                             ImageUrl = "/images/CPH.jpg",
-                            Name = "Hotel Copenhagen"
+                            Name = "Hotel Copenhagen",
+                            Price = 250
                         },
                         new
                         {
@@ -382,7 +389,8 @@ namespace WebAPI.Migrations
                             Country = "Denmark",
                             Description = "A cozy hotel in Aarhus.",
                             ImageUrl = "/images/Aarhus.jpg",
-                            Name = "Hotel Aarhus"
+                            Name = "Hotel Aarhus",
+                            Price = 120
                         },
                         new
                         {
@@ -390,7 +398,8 @@ namespace WebAPI.Migrations
                             Country = "Germany",
                             Description = "An upscale hotel near Brandenburg Gate.",
                             ImageUrl = "/images/hotelb.jpg",
-                            Name = "Hotel Berlin"
+                            Name = "Hotel Berlin",
+                            Price = 285
                         },
                         new
                         {
@@ -398,7 +407,8 @@ namespace WebAPI.Migrations
                             Country = "Germany",
                             Description = "A charming hotel in Munich.",
                             ImageUrl = "/images/hotelmun.jpg",
-                            Name = "Hotel Munich"
+                            Name = "Hotel Munich",
+                            Price = 150
                         },
                         new
                         {
@@ -406,7 +416,8 @@ namespace WebAPI.Migrations
                             Country = "France",
                             Description = "A romantic hotel with views of the Eiffel Tower.",
                             ImageUrl = "/images/hotelp.jpg",
-                            Name = "Hotel Paris"
+                            Name = "Hotel Paris",
+                            Price = 287
                         },
                         new
                         {
@@ -414,7 +425,8 @@ namespace WebAPI.Migrations
                             Country = "France",
                             Description = "A beautiful hotel in Lyon.",
                             ImageUrl = "/images/hotellyon.jpg",
-                            Name = "Hotel Lyon"
+                            Name = "Hotel Lyon",
+                            Price = 137
                         },
                         new
                         {
@@ -422,7 +434,8 @@ namespace WebAPI.Migrations
                             Country = "Canada",
                             Description = "A charming hotel in the city center.",
                             ImageUrl = "/images/hoteltoronto.jpg",
-                            Name = "Hotel Toronto"
+                            Name = "Hotel Toronto",
+                            Price = 184
                         },
                         new
                         {
@@ -430,7 +443,8 @@ namespace WebAPI.Migrations
                             Country = "Canada",
                             Description = "A stylish hotel in Milan.",
                             ImageUrl = "/images/hotelv.jpg",
-                            Name = "Hotel Vancouver"
+                            Name = "Hotel Vancouver",
+                            Price = 193
                         },
                         new
                         {
@@ -438,7 +452,8 @@ namespace WebAPI.Migrations
                             Country = "Australia",
                             Description = "A vibrant hotel near the beach.",
                             ImageUrl = "/images/hotelss.jpg",
-                            Name = "Hotel Sydney"
+                            Name = "Hotel Sydney",
+                            Price = 152
                         },
                         new
                         {
@@ -446,7 +461,8 @@ namespace WebAPI.Migrations
                             Country = "Australia",
                             Description = "A luxurious hotel in the capital.",
                             ImageUrl = "/images/hotelc.jpg",
-                            Name = "Hotel Canberra"
+                            Name = "Hotel Canberra",
+                            Price = 163
                         },
                         new
                         {
@@ -454,7 +470,8 @@ namespace WebAPI.Migrations
                             Country = "Japan",
                             Description = "A modern hotel in Manchester.",
                             ImageUrl = "/images/hotelttt.jpg",
-                            Name = "Hotel Tokyo"
+                            Name = "Hotel Tokyo",
+                            Price = 243
                         },
                         new
                         {
@@ -462,7 +479,8 @@ namespace WebAPI.Migrations
                             Country = "Japan",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelosa.jpg",
-                            Name = "Hotel Osaka"
+                            Name = "Hotel Osaka",
+                            Price = 175
                         },
                         new
                         {
@@ -470,7 +488,8 @@ namespace WebAPI.Migrations
                             Country = "Brazil",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelbra.jpg",
-                            Name = "Hotel Brasilia"
+                            Name = "Hotel Brasilia",
+                            Price = 190
                         },
                         new
                         {
@@ -478,7 +497,8 @@ namespace WebAPI.Migrations
                             Country = "Brazil",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelpao.jpg",
-                            Name = "Hotel Sao Paulo"
+                            Name = "Hotel Sao Paulo",
+                            Price = 126
                         },
                         new
                         {
@@ -486,7 +506,8 @@ namespace WebAPI.Migrations
                             Country = "China",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelbei.jpg",
-                            Name = "Hotel Beijing"
+                            Name = "Hotel Beijing",
+                            Price = 172
                         },
                         new
                         {
@@ -494,7 +515,8 @@ namespace WebAPI.Migrations
                             Country = "China",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelshang.jpg",
-                            Name = "Hotel Shanghai"
+                            Name = "Hotel Shanghai",
+                            Price = 229
                         },
                         new
                         {
@@ -502,7 +524,8 @@ namespace WebAPI.Migrations
                             Country = "India",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelmom.jpg",
-                            Name = "Hotel Mumbai"
+                            Name = "Hotel Mumbai",
+                            Price = 268
                         },
                         new
                         {
@@ -510,7 +533,8 @@ namespace WebAPI.Migrations
                             Country = "India",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelcurry.jpg",
-                            Name = "Hotel Surat"
+                            Name = "Hotel Surat",
+                            Price = 222
                         },
                         new
                         {
@@ -518,7 +542,8 @@ namespace WebAPI.Migrations
                             Country = "Russia",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelputin.jpg",
-                            Name = "Hotel Moscow"
+                            Name = "Hotel Moscow",
+                            Price = 103
                         },
                         new
                         {
@@ -526,7 +551,8 @@ namespace WebAPI.Migrations
                             Country = "Russia",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelsaint.jpg",
-                            Name = "Hotel Saint Petersburg"
+                            Name = "Hotel Saint Petersburg",
+                            Price = 200
                         },
                         new
                         {
@@ -534,7 +560,8 @@ namespace WebAPI.Migrations
                             Country = "South Africa",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hoteltown.jpg",
-                            Name = "Hotel Cape Town"
+                            Name = "Hotel Cape Town",
+                            Price = 130
                         },
                         new
                         {
@@ -542,7 +569,8 @@ namespace WebAPI.Migrations
                             Country = "South Africa",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelburg.jpg",
-                            Name = "Hotel Johannesburg"
+                            Name = "Hotel Johannesburg",
+                            Price = 190
                         },
                         new
                         {
@@ -550,7 +578,8 @@ namespace WebAPI.Migrations
                             Country = "Egypt",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelsalah.jpg",
-                            Name = "Hotel Cairo"
+                            Name = "Hotel Cairo",
+                            Price = 110
                         },
                         new
                         {
@@ -558,7 +587,8 @@ namespace WebAPI.Migrations
                             Country = "Egypt",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelgiza.jpg",
-                            Name = "Hotel Giza"
+                            Name = "Hotel Giza",
+                            Price = 145
                         },
                         new
                         {
@@ -566,7 +596,8 @@ namespace WebAPI.Migrations
                             Country = "Argentina",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelaries.jpg",
-                            Name = "Hotel Buenos Aires"
+                            Name = "Hotel Buenos Aires",
+                            Price = 120
                         },
                         new
                         {
@@ -574,7 +605,8 @@ namespace WebAPI.Migrations
                             Country = "Argentina",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelcor.jpg",
-                            Name = "Hotel Cordoba"
+                            Name = "Hotel Cordoba",
+                            Price = 125
                         },
                         new
                         {
@@ -582,7 +614,8 @@ namespace WebAPI.Migrations
                             Country = "Mexico",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelmexico.jpg",
-                            Name = "Hotel Mexico City"
+                            Name = "Hotel Mexico City",
+                            Price = 225
                         },
                         new
                         {
@@ -590,7 +623,8 @@ namespace WebAPI.Migrations
                             Country = "Mexico",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelg.jpg",
-                            Name = "Hotel Guadalajara"
+                            Name = "Hotel Guadalajara",
+                            Price = 175
                         },
                         new
                         {
@@ -598,7 +632,8 @@ namespace WebAPI.Migrations
                             Country = "Turkey",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelis.jpg",
-                            Name = "Hotel Istanbul"
+                            Name = "Hotel Istanbul",
+                            Price = 250
                         },
                         new
                         {
@@ -606,7 +641,8 @@ namespace WebAPI.Migrations
                             Country = "Turkey",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelan.jpg",
-                            Name = "Hotel Antalya"
+                            Name = "Hotel Antalya",
+                            Price = 300
                         },
                         new
                         {
@@ -614,7 +650,8 @@ namespace WebAPI.Migrations
                             Country = "Greece",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelat.jpg",
-                            Name = "Hotel Athens"
+                            Name = "Hotel Athens",
+                            Price = 150
                         },
                         new
                         {
@@ -622,7 +659,8 @@ namespace WebAPI.Migrations
                             Country = "Greece",
                             Description = "A stylish hotel in the city.",
                             ImageUrl = "/images/hotelrho.jpg",
-                            Name = "Hotel Rhodes"
+                            Name = "Hotel Rhodes",
+                            Price = 200
                         });
                 });
 

@@ -19,13 +19,16 @@ As a user, I want to be able to cancel or modify my bookings, so that I can chan
 
 2) Our application consists of several key pages, each serving a specific function:
 
-Home Page: Provides a general introduction and navigation to other pages, such as events and hotels.
+activities.razor page: The page allows users to search for countries using an input field. Matching countries are displayed in a dropdown list below the input field. If no countries match the search query, a "No countries found" message is displayed. The page shows a loading message while data is being fetched. Once the data is loaded, related activities or events are displayed. This page provides an interactive way for users to search for countries and view related activities or events, with a focus on user experience and responsiveness.
 
-Events Page: Displays an overview of upcoming and past events, with details and images for each event. Data for this page is fetched from our API and includes dynamic image loading.
-
-Hotels Page: Offers users a list of available hotels in the area. Hotel images and information are also pulled from the API and displayed dynamically on the page.
-
-Login Page: Allows users to log into the system. We have recently started implementing login functionality in Blazor, ensuring that only authorized users can access certain parts of the application.
+allbookings.razor:
+changepass.razor:
+createacc.razor:
+home.razor:
+hotelbooking.razor:
+login.razor:
+reservation.razor:
+userinfo.razor:
 
 3)
 In our hotel booking project, the frontend connects to the web system by making HTTP requests to the backend, which processes the data and sends back responses. The frontend interacts with the backend using APIs. These APIs help to manage user actions like booking hotels, logging in, viewing and canceling bookings, and getting personalized recommendations.

@@ -1,5 +1,7 @@
 ![image](https://github.com/user-attachments/assets/c1a1495f-e4cf-4e09-8851-28652cfb8830)
 
+In our project, the User Management section focuses on defining the types of users, implementing the login system, and ensuring proper handling of resources between different actors.
+
 1)
 We have an admin and all the users we want to create, in our case we created one user. We created a login razor that would allow a user to create a login that they would need in order to make a booking.
 ![Skærmbillede 2024-11-29 kl  10 51 56](https://github.com/user-attachments/assets/9da95c91-cc57-43bf-8771-ae727ed4fa02)

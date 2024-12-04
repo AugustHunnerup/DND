@@ -4,6 +4,10 @@ In our project, the User Management section focuses on defining the types of use
 
 1)
 We have an admin and all the users we want to create, in our case we created one user. We created a login razor that would allow a user to create a login that they would need in order to make a booking.
+
+![Skærmbillede 2024-12-04 kl  15 00 45](https://github.com/user-attachments/assets/d93ea09e-ff7d-4b9a-878b-ecdd36af865f)
+
+
 ![Skærmbillede 2024-11-29 kl  10 51 56](https://github.com/user-attachments/assets/9da95c91-cc57-43bf-8771-ae727ed4fa02)
 
 

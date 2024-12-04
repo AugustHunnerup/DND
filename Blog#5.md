@@ -35,6 +35,12 @@ LINQ syntax is decorative and object oriented. Tradtional SQL syntax is also dec
 LINQ is easier to refactor since it is strong typing. Traditional SQL is more prone to errors during changes.
 
 
+This code example below represents a LINQ query that retrieves a filtered list of distinct country names from a collection of hotels. The query makes use of LINQ extension methods like Select, Distinct, Where, and ToList to perform its operations.
+
+![image](https://github.com/user-attachments/assets/06a2cb4d-b22a-44b7-a8f8-1cd0894ba64c)
+
+
+
 The code example below shows the use of LINQ (Language Integrated Query) within the ASP.NET Core Web API method to query a database for hotels located in a specified country.
 
 ![image](https://github.com/user-attachments/assets/9d0c39d3-0e39-4606-bb3f-92701e5d32c4)

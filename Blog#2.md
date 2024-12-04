@@ -42,6 +42,9 @@ We use RESTful web API to manage hotel data, user authentication, and bookings. 
         }
     }
 
+![image](https://github.com/user-attachments/assets/7136e338-b2a5-4dfc-b769-a0afe01e8b94)
+
+
 HTTP Verbs:
 GET: Retrieves resources.
 POST: Creates new resources.

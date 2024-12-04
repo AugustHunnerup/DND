@@ -50,37 +50,7 @@ DELETE: Removes resources.
 
 
 2)
-Here are two examples of API endpoints. We have used GET and POST in the examples below:
 
-[HttpGet]
-public async Task<ActionResult<IEnumerable<Hotel>>> Get()
-{
-    return await _context.Hotels.ToListAsync();
-}
-
-HTTP Method: GET
-Route: /api/[controller]
-
-
- [HttpPost("login")]
-    public async Task<ActionResult> Login([FromBody] UserLoginDto userLoginDto)
-    {
-        try
-        {
-            User user = await authService.ValidateUser(userLoginDto.Username, userLoginDto.Password);
-            string token = GenerateJwt(user);
-
-            return Ok(token);
-        }
-        catch (Exception e)
-        {
-            return BadRequest(e.Message);
-        }
-    }
-
-
-HTTP Method: POST
-Route: /api/[controller]/login
 
 3)
 

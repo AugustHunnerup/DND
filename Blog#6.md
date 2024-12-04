@@ -30,7 +30,9 @@ The group decided to set a clear scope early in the project and defined several 
 This feature turned out to be too large in scope to implement within the project timeline. The group implemented the cancel part of thise requirement but was unable to implement modification of the bookings. The complexity of handling modifications exceeded our available resources and time. Despite our best efforts, the group was unable to fully realize this feature within the project constraints. Moving forward, we would prioritize breaking down such large features into smaller, more manageable tasks to ensure feasibility and progress.
 
 4) link to video
-https://www.youtube.com/watch?fbclid=IwZXh0bgNhZW0CMTEAAR2mLZULlfcMLCuMn6CNQ_GRMLHiu5ur364qp6Y0q1hGN5Kb9wjqAKDyr8I_aem_mIMBbM6aX7gwn7hn8TCHGA&v=FHR80zGefNc&feature=youtu.be 
+https://www.youtube.com/watch?fbclid=IwZXh0bgNhZW0CMTEAAR2mLZULlfcMLCuMn6CNQ_GRMLHiu5ur364qp6Y0q1hGN5Kb9wjqAKDyr8I_aem_mIMBbM6aX7gwn7hn8TCHGA&v=FHR80zGefNc&feature=youtu.be
+
+our screen recorder could not record when we updated our dates 
 
    
 
